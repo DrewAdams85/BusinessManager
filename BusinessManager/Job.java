@@ -2,42 +2,44 @@
 public class Job {
 	
 	// *** declaring variables ***
-	private String title;
+	private String title, date;
 	private double price, hours;
-	private int numberOfWorkers;
 	
-	// *** constructor ***
-	public Job(String title, double price) {
+	// *** constructors ***
+	public Job(String date, String title, double price) {
+      this.date = date;
 		this.title = title;
 		this.price = price;
 	}
+   
+   public Job(String date, String title, double pricePerHour, double totalHours) {
+      this.date = date;
+      this.title = title;
+      price = pricePerHour;
+      hours = totalHours;
+   }
 	
 	//  *** methods ***
 	
 	// getter
 	public double getHours() {
-		return fName;
-	}
-	
-	public int getNumberOfWorkers() {
-		return numberOfWorkers;
+		return hours;
 	}
 	
 	public double getPrice() {
 		return price;
 	}
 
-	public string getTitle() {
+	public String getTitle() {
 		return title;
 	}
+   
+   public String getDate() {
+      return date;
+   }
 	
 	// setters
 	public void setHours(double hours) {
 		this.hours = hours;
 	}
-	
-	public void setNumberOfWorkers(int numberOfWorkers) {
-		this.numberOfWorkers = numberOfWorkers;
-	}
-		
 }
