@@ -14,7 +14,7 @@ public class Job {
 	
 	//  *** methods ***
 	
-	// getters
+	// getter
 	public double getHours() {
 		return fName;
 	}
