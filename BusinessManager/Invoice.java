@@ -1,4 +1,7 @@
-//Created by Kent Allen and Drew Adams - 4/01/2015
+/************************************
+* Created by Kent Allen and Drew Adams
+* 4/01/2015
+************************************/
 public class Invoice {
    private static double totalPrice, seniorDiscount;
    
