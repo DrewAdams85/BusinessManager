@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 
 public class BusinessManagerApp {
    public static void main(String[] args) {
-      DateFormat df = new SimpleDateFormat("dd/MM/yy");
+      DateFormat df = new SimpleDateFormat("MM/dd/yy");
       Date dateobj = new Date();
       
       //Test Code
