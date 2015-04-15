@@ -18,7 +18,7 @@ public class Invoice {
       }
       
       if(client.getSeniorDiscount())
-         System.out.printf("%n%15s %43s%n", "Senior Discount", "-"+seniorDiscount(client));
+         System.out.printf("%n%15s %43s%n", "Senior Discount", "-"+String.format("%.2f",seniorDiscount(client)));
       
       System.out.println("-----------------------------------------------------------");
       System.out.printf("%50s %8.2f%n", "Total Amount Due: ", grandTotal(client));
@@ -49,7 +49,7 @@ public class Invoice {
    }
    
    public static double seniorDiscount(Client client) {
-      seniorDiscount = Math.round(100*grandTotal(client)*.1)/100d;
+      seniorDiscount = grandTotal(client)*.1;
       return seniorDiscount;
    }
 }
