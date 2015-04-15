@@ -49,7 +49,7 @@ public class Invoice {
    }
    
    public static double seniorDiscount(Client client) {
-      seniorDiscount = grandTotal(client)*.1;
+      seniorDiscount = Math.round(100*grandTotal(client)*.1)/100d;
       return seniorDiscount;
    }
 }
