@@ -8,10 +8,12 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class BusinessManagerApp {
+   static int menu = 0;
+   static int subMenu = 0;
+      
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		int menu = 0;
-		int subMenu = 0;
+		
 
 		while (menu != 4) {
 			System.out.println("Menu: \n" 
@@ -25,34 +27,7 @@ public class BusinessManagerApp {
 			System.out.println();
 			switch (menu) {
 			case 1:
-				while (subMenu != 4) {
-					System.out.println("Client Sub Menu: \n"
-							+ "1) Create Client \n" 
-							+ "2) Edit Client Info \n"
-							+ "3) View Client Info \n" 
-							+ "4) Exit");
-					System.out.println();
-					System.out.printf("Sub Menu Option: ");
-					subMenu = input.nextInt();
-					System.out.println();
-					switch (subMenu) {
-					case 1:
-						System.out.println();
-						break;
-					case 2:
-						System.out.println();
-						break;
-					case 3:
-						System.out.println();
-						break;
-					case 4:
-						System.out.printf("%nMain Menu%n");
-						break;
-					default:
-						System.out.printf("Invalid selection%n");
-					}
-				}
-
+				clientSubMenu(input);
 				System.out.println();
 				break;
 			case 2:
@@ -136,4 +111,38 @@ public class BusinessManagerApp {
 		// End Test Code
 
 	}
+   
+   public static void clientSubMenu(Scanner input) {
+      String fName, lName, address, city, state, zip, phone;
+      boolean seniorDiscount;
+      while (subMenu != 4) {
+					System.out.println("Client Sub Menu: \n"
+							+ "1) Create Client \n" 
+							+ "2) Edit Client Info \n"
+							+ "3) View Client Info \n" 
+							+ "4) Exit");
+					System.out.println();
+					System.out.printf("Sub Menu Option: ");
+					subMenu = input.nextInt();
+					System.out.println();
+					switch (subMenu) {
+					case 1:
+                  System.out.print("Clients first name: ");
+                  fName = input.next();
+						System.out.println();
+						break;
+					case 2:
+						System.out.println();
+						break;
+					case 3:
+						System.out.println();
+						break;
+					case 4:
+						System.out.printf("%nMain Menu%n");
+						break;
+					default:
+						System.out.printf("Invalid selection%n");
+					}
+				}
+   }
 }
