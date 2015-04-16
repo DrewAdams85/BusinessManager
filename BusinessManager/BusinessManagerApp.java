@@ -29,7 +29,7 @@ public class BusinessManagerApp {
 			System.out.println();
 			switch (menu) {
 			case 1:
-				clientSubMenu(input);
+				clientMenu(input);
 				System.out.println();
 				break;
 			case 2:
@@ -114,7 +114,7 @@ public class BusinessManagerApp {
 
 	}
    
-   public static void clientSubMenu(Scanner input) {
+   public static void clientMenu(Scanner input) {
       String fName, lName, address, city, state, zip, phone, selection;
       boolean seniorDiscount = false;
       while (subMenu != 4) {
@@ -129,9 +129,9 @@ public class BusinessManagerApp {
 					System.out.println();
 					switch (subMenu) {
 					case 1:
-                  System.out.print("Clients first name: ");
+                  System.out.print("Clients first name: "); 
                   fName = input.next();
-                  System.out.print("Clients last name: ");
+                  System.out.print("Clients last name: "); 
                   lName = input.next();
                   System.out.print("Clients address: ");
                   address = input.next();
@@ -153,7 +153,7 @@ public class BusinessManagerApp {
 						System.out.println();
 						break;
 					case 2:
-                  editClientSubMenu(input);
+                  editClientMenu(input);
 						System.out.println();
 						break;
 					case 3:
@@ -168,11 +168,75 @@ public class BusinessManagerApp {
 				}
    }
    
-   public static void editClientSubMenu(Scanner input) {
+   public static void editClientMenu(Scanner input) {
+      int clientIndex;
       do {
+         System.out.println("What client would you like to edit?");
          for(int i = 0; i < clientList.size() ;i++) {
-            System.out.printf("%d %s %s%n", i, clientList.get(i).getFName(), clientList.get(i).getLName());
+            System.out.printf("%d %s %s%n", i+1, clientList.get(i).getFName(), clientList.get(i).getLName());
          }
+         System.out.println("0) Exit");
+         subMenu = input.nextInt();
+         clientIndex = subMenu-1;
+         
+         editClientSubMenu(input, clientIndex);
+         
+         
+      } while(subMenu != 0);
+   }
+   
+   public static void editClientSubMenu(Scanner input, int clientIndex) {
+      
+      do {
+         System.out.println("What would you like to edit?");
+         System.out.println("1) First Name");
+         System.out.println("2) Last Name");
+         System.out.println("3) Address");
+         System.out.println("4) Phone Number");
+         System.out.println("5) Senior Discount");
+         System.out.println("6) Return to Client Menu");
+         System.out.println("0) Exit");
+         System.out.print("Sub Menu Option: ");
+         
+         subMenu = input.nextInt();
+         
+         switch(subMenu) {
+            case 1:
+               System.out.print("Enter New First Name: ");
+               clientList.get(clientIndex).setFName(input.next());
+               break;
+            case 2:
+               System.out.print("Enter New Last Name: ");
+               clientList.get(clientIndex).setLName(input.next());
+               break;
+            case 3:
+               System.out.print("Enter New Address: ");
+               clientList.get(clientIndex).setAddress(input.next());
+               System.out.print("Enter New City: ");
+               clientList.get(clientIndex).setCity(input.next());
+               System.out.print("Enter New State: ");
+               clientList.get(clientIndex).setState(input.next());
+               System.out.print("Enter New Zip: ");
+               clientList.get(clientIndex).setZip(input.next());
+               break;
+            case 4:
+               System.out.print("Enter New Phone Number: ");
+               clientList.get(clientIndex).setPhone(input.next());
+               break;
+            case 5:
+               System.out.print("Does This Client Recieve A Senior Discount?(y/n): ");
+               if(input.next() == "y")
+                  clientList.get(clientIndex).setSeniorDiscount(true);
+               else
+                  clientList.get(clientIndex).setSeniorDiscount(false);
+               break;
+            case 6:
+               clientMenu(input);
+               break;
+            default:
+               System.out.println("Invalid Selection");      
+         }
+         
          
       } while(subMenu != 0);
    }
