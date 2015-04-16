@@ -6,10 +6,12 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BusinessManagerApp {
-   static int menu = 0;
-   static int subMenu = 0;
+   private static int menu = 0;
+   private static int subMenu = 0;
+   private static ArrayList<Client> clientList = new ArrayList<>();
       
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -113,8 +115,8 @@ public class BusinessManagerApp {
 	}
    
    public static void clientSubMenu(Scanner input) {
-      String fName, lName, address, city, state, zip, phone;
-      boolean seniorDiscount;
+      String fName, lName, address, city, state, zip, phone, selection;
+      boolean seniorDiscount = false;
       while (subMenu != 4) {
 					System.out.println("Client Sub Menu: \n"
 							+ "1) Create Client \n" 
@@ -129,9 +131,29 @@ public class BusinessManagerApp {
 					case 1:
                   System.out.print("Clients first name: ");
                   fName = input.next();
+                  System.out.print("Clients last name: ");
+                  lName = input.next();
+                  System.out.print("Clients address: ");
+                  address = input.next();
+                  System.out.print("Clients city: ");
+                  city = input.next();
+                  System.out.print("Clients state: ");
+                  state = input.next();
+                  System.out.print("Clients Zip: ");
+                  zip = input.next();
+                  System.out.print("Clients phone number: ");
+                  phone = input.next();
+                  System.out.print("Does this client get a senior discoiunt?(y/n): ");
+                  selection = input.next();
+                  if(selection == "y")
+                     seniorDiscount = true;
+                  
+                  clientList.add(new Client(fName, lName, address, city, state, zip, phone, seniorDiscount));
+                  
 						System.out.println();
 						break;
 					case 2:
+                  editClientSubMenu(input);
 						System.out.println();
 						break;
 					case 3:
@@ -144,5 +166,14 @@ public class BusinessManagerApp {
 						System.out.printf("Invalid selection%n");
 					}
 				}
+   }
+   
+   public static void editClientSubMenu(Scanner input) {
+      do {
+         for(int i = 0; i < clientList.size() ;i++) {
+            System.out.printf("%d %s %s%n", i, clientList.get(i).getFName(), clientList.get(i).getLName());
+         }
+         
+      } while(subMenu != 0);
    }
 }

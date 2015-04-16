@@ -12,8 +12,10 @@ public class Client {
    private boolean seniorDiscount;
 
 	// *** constructor ***
-	public Client(String fName, String lName, String address, String city, String state, String zip, String phone, boolean seniorDiscount) {
-		this.fName = fName;
+	public Client(String fName, String lName, String address, String city, String state, 
+      String zip, String phone, boolean seniorDiscount) {
+		
+      this.fName = fName;
 		this.lName = lName;
 		this.address = address;
       this.city = city;
