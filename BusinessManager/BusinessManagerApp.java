@@ -110,7 +110,7 @@ public class BusinessManagerApp {
 		kentAllen.addJob("4/14/2015", "Mowing", 25);
 		kentAllen.addJob("4/17/2015", "Spring Cleanup", 25d, 5);
 		Invoice.printInvoice(kentAllen, df.format(dateobj.getTime()));
-		// End Test Code
+		// End Test Code blah
 
 	}
    
