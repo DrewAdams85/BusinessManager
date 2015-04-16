@@ -25,14 +25,16 @@ public class BusinessManagerApp {
 			System.out.println();
 			switch (menu) {
 			case 1:
-				Scanner input2 = new Scanner(System.in);
 				while (subMenu != 4) {
 					System.out.println("Client Sub Menu: \n"
 							+ "1) Create Client \n" 
 							+ "2) Edit Client Info \n"
 							+ "3) View Client Info \n" 
 							+ "4) Exit");
+					System.out.println();
+					System.out.printf("Sub Menu Option: ");
 					subMenu = input.nextInt();
+					System.out.println();
 					switch (subMenu) {
 					case 1:
 						System.out.println();
@@ -60,7 +62,10 @@ public class BusinessManagerApp {
 							+ "2) Edit Job Info \n" 
 							+ "3) View Job Info \n"
 							+ "4) Exit");
+					System.out.println();
+					System.out.printf("Sub Menu Option: ");
 					subMenu = input.nextInt();
+					System.out.println();
 					switch (subMenu) {
 					case 1:
 						System.out.println();
@@ -87,7 +92,10 @@ public class BusinessManagerApp {
 							+ "2) Edit Invoice Info \n"
 							+ "3) View Invoice Info \n" 
 							+ "4) Exit");
+					System.out.println();
+					System.out.printf("Sub Menu Option: ");
 					subMenu = input.nextInt();
+					System.out.println();
 					switch (subMenu) {
 					case 1:
 						System.out.println();
