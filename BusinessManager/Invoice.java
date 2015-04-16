@@ -9,6 +9,7 @@ public class Invoice {
       System.out.printf("%-32s %26s%n", client.getFName() + " " + client.getLName(), currentDate);
       System.out.printf("%s%n", client.getPhone());
       System.out.printf("%s%n", client.getAddress());
+      System.out.printf("%s, %s, %s%n", client.getCity(), client.getState(), client.getZip());
       System.out.println();
       System.out.printf("%-10s %-32s %-8s %-8s%n", "Date", "Services", "Hours", "Amount");
       System.out.println("-----------------------------------------------------------");
