@@ -20,6 +20,7 @@ public class Invoice {
          else
             System.out.printf("%-10s %-32s %15.2f%n", el.getDate(), el.getTitle(), totalPrice(el));
       }
+      System.out.println();
       
       if(client.getSeniorDiscount())
          System.out.printf("%n%15s %43s%n", "Senior Discount", "-"+String.format("%.2f",seniorDiscount(client)));
