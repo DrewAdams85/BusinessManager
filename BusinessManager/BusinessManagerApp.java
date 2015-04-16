@@ -233,11 +233,15 @@ public class BusinessManagerApp {
             case 6:
                clientMenu(input);
                break;
+            case 0:
+               System.out.println("Good Bye");
+               break;
             default:
                System.out.println("Invalid Selection");      
          }
          
          
       } while(subMenu != 0);
+      System.exit(0);
    }
 }
