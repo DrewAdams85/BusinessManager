@@ -6,7 +6,7 @@ public class Invoice {
    private static double totalPrice, seniorDiscount;
    
    public static void printInvoice(Client client, String currentDate) {
-      System.out.printf("%s %s %48s%n", client.getFName(), client.getLName(), currentDate);
+      System.out.printf("%-32s %26s%n", client.getFName() + " " + client.getLName(), currentDate);
       System.out.printf("%s%n", client.getPhone());
       System.out.printf("%s%n", client.getAddress());
       System.out.println();
