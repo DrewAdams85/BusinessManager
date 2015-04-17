@@ -157,6 +157,7 @@ public class BusinessManagerApp {
 						System.out.println();
 						break;
 					case 3:
+                  viewClientMenu(input);
 						System.out.println();
 						break;
 					case 4:
@@ -243,5 +244,39 @@ public class BusinessManagerApp {
          
       } while(subMenu != 0);
       System.exit(0);
+   }
+   
+   public static void viewClientMenu(Scanner input) {
+      int clientIndex;
+      do {
+         System.out.println("What client would you like to view?");
+         for(int i = 0; i < clientList.size() ;i++) {
+            System.out.printf("%d %s %s%n", i+1, clientList.get(i).getFName(), clientList.get(i).getLName());
+         }
+         System.out.println("0) Return To Client Menu");
+         subMenu = input.nextInt();
+         clientIndex = subMenu-1;
+         System.out.println();
+         
+         if(subMenu != 0){
+            printClientInfo(clientIndex);
+         } else {
+            clientMenu(input);
+         }
+
+         } while(subMenu != 0);
+         
+         System.exit(0);
+   }
+   
+   public static void printClientInfo(int clientIndex) {
+      System.out.println("Info for " + clientList.get(clientIndex).getFName() + " " + 
+            clientList.get(clientIndex).getLName() + "\n" + 
+            "Address: " + clientList.get(clientIndex).getAddress() + "\n" + 
+            "City: " + clientList.get(clientIndex).getCity() + "\n" + 
+            "State: " + clientList.get(clientIndex).getState() + "\n" + 
+            "Zip: " + clientList.get(clientIndex).getZip() + "\n" + 
+            "Phone Number: " + clientList.get(clientIndex).getPhone() + "\n" + 
+            "Senior Discount: " + clientList.get(clientIndex).getSeniorDiscount() + "\n");
    }
 }
