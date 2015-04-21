@@ -9,12 +9,11 @@ public class Menu {
    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
    Date dateobj = new Date();
    private static int menu = 0;
-   private static int subMenu = 0;
    private static ArrayList<Client> clientList = new ArrayList<>();
    
    public static void mainMenu(Scanner input) {
    do {
-			System.out.println("Menu: \n" 
+			System.out.println("Main Menu: \n" 
 					+ " 1) Client Menu \n"
 					+ " 2) Job Menu \n" 
 					+ " 3) Print Invoice \n" 
@@ -32,6 +31,7 @@ public class Menu {
 			case 2:
 				jobMenu(input);
             System.out.println();
+            break;
 			case 3:
 				printInvoice(input);
 				System.out.println();
@@ -43,9 +43,11 @@ public class Menu {
             System.out.println("Goodbye");
             break;
 			default:
-				System.out.printf("Invalid selection%n");
+				System.out.println("Invalid selection");
 			}
 		}while (menu != 0);
+      
+      System.exit(0);
    }
    
    public static void clientMenu(Scanner input) {
@@ -60,27 +62,27 @@ public class Menu {
 							+ "0) Exit");
 					System.out.println();
 					System.out.printf("Sub Menu Option: ");
-					subMenu = input.nextInt();
+					menu = input.nextInt();
                input.nextLine();
                
 					System.out.println();
-					switch (subMenu) {
+					switch (menu) {
 					case 1:
-                  System.out.print("Clients full name: "); 
+                  System.out.print("Clients First Name: "); 
                   fName = input.nextLine();
-                  System.out.print("Clients last name: "); 
+                  System.out.print("Clients Last Name: "); 
                   lName = input.nextLine();
-                  System.out.print("Clients address: ");
+                  System.out.print("Clients Address: ");
                   address = input.nextLine();
-                  System.out.print("Clients city: ");
+                  System.out.print("Clients City: ");
                   city = input.nextLine();
-                  System.out.print("Clients state: ");
+                  System.out.print("Clients State: ");
                   state = input.nextLine();
                   System.out.print("Clients Zip: ");
                   zip = input.nextLine();
-                  System.out.print("Clients phone number: ");
+                  System.out.print("Clients Phone Number: ");
                   phone = input.nextLine();
-                  System.out.print("Does this client get a senior discoiunt?(y/n): ");
+                  System.out.print("Does This Client Get A Senior Discoiunt?(y/n): ");
                   selection = input.next();
                   if(selection.equals("y"))
                      seniorDiscount = true;
@@ -98,16 +100,15 @@ public class Menu {
 						System.out.println();
 						break;
 					case 4:
-						System.out.printf("%nMain Menu%n");
                   mainMenu(input);
 						break;
                case 0:
                   System.out.println("Goodbye");
                   break;
 					default:
-						System.out.printf("Invalid selection%n");
+						System.out.println("Invalid selection");
 					}
-				} while(subMenu != 0);
+				} while(menu != 0);
    }
    
    public static void editClientMenu(Scanner input) {
@@ -115,19 +116,20 @@ public class Menu {
       do {
          System.out.println("What client would you like to edit?");
          for(int i = 0; i < clientList.size() ;i++) {
-            System.out.printf("%d %s %s%n", i+1, clientList.get(i).getFName(), clientList.get(i).getLName());
+            System.out.printf("%d %s %s%n", i+1, clientList.get(i).getFName(), 
+               clientList.get(i).getLName());
          }
          System.out.println("0) Exit\n");
          System.out.print("Selection: ");
-         subMenu = input.nextInt();
+         menu = input.nextInt();
          input.nextLine();
          
-         clientIndex = subMenu-1;
+         clientIndex = menu-1;
          
          editClientSubMenu(input, clientIndex);
          
          
-      } while(subMenu != 0);
+      } while(menu != 0);
    }
    
    public static void editClientSubMenu(Scanner input, int clientIndex) {
@@ -143,10 +145,10 @@ public class Menu {
          System.out.println("0) Exit");
          System.out.print("Sub Menu Option: ");
          
-         subMenu = input.nextInt();
+         menu = input.nextInt();
          input.nextLine();
          
-         switch(subMenu) {
+         switch(menu) {
             case 1:
                System.out.print("Enter New First Name: ");
                clientList.get(clientIndex).setFName(input.nextLine());
@@ -194,7 +196,7 @@ public class Menu {
          }
          
          
-      } while(subMenu != 0);
+      } while(menu != 0);
       System.exit(0);
    }
    
@@ -202,16 +204,17 @@ public class Menu {
       int clientIndex;
       System.out.println("What client would you like to view?");
       for(int i = 0; i < clientList.size() ;i++) {
-         System.out.printf("%d) %s %s%n", i+1, clientList.get(i).getFName(), clientList.get(i).getLName());
+         System.out.printf("%d) %s %s%n", i+1, clientList.get(i).getFName(), 
+            clientList.get(i).getLName());
       }
       System.out.println("0) Return To Client Menu");
-      subMenu = input.nextInt();
+      menu = input.nextInt();
       input.nextLine();
          
-      clientIndex = subMenu-1;
+      clientIndex = menu-1;
       System.out.println();
          
-      if(subMenu != 0){
+      if(menu != 0){
          printClientInfo(clientIndex);
          clientMenu(input);
       } else {
@@ -231,19 +234,20 @@ public class Menu {
    }
    
    public static void jobMenu(Scanner input) {
-		while (subMenu != 4) {
+		do {
 			System.out
 					.println("Job Sub Menu: \n" 
 							+ "1) Create Job \n"
 							+ "2) Edit Job Info \n" 
 							+ "3) View Job Info \n"
-							+ "4) Exit");
+							+ "4) Main Menu \n"
+                     + "0) Exit");
 			System.out.println();
-			System.out.printf("Sub Menu Option: ");
-			subMenu = input.nextInt();
+			System.out.printf("Job Menu Option: ");
+			menu = input.nextInt();
 			input.nextLine();
 			System.out.println();
-			switch (subMenu) {
+			switch (menu) {
 			case 1:
 				createJobMenu(input, menu);
 				System.out.println();
@@ -255,14 +259,19 @@ public class Menu {
 				//viewClientJobMenu(input, menu);
 				break;
 			case 4:
-				System.out.printf("Exit to Job Menu:");
-				jobMenu(input);
+				System.out.println("Exit to Main Menu");
+            System.out.println();
+				mainMenu(input);
 				break;
+         case 0:
+            System.out.println("Good Bye");
+            break;
 			default:
 				System.out.printf("Invalid selection%n");
 			}
-		}
+		}while (menu != 0);
 		System.out.println();
+      System.exit(0);
 
 	}
 
@@ -270,41 +279,57 @@ public class Menu {
 		String title, date, hours, selection;
 		double price = 0, pricePerHour = 0, totalHours = 0;
 		boolean hourlyJob = false;
-		
-		do {
-			System.out.println("For which client would you like to add a job?");
-			for (int i = 0; i < clientList.size(); i++) {
-				System.out.printf("%d %s %s%n", i + 1, clientList.get(i)
-						.getFName(), clientList.get(i).getLName());
-			}
-			System.out.println("0) Return To Job Menu");
-			subMenu = input.nextInt();
-			input.nextLine();
-			clientIndex = subMenu - 1;
-			System.out.println();
-			System.out.print("Enter a title for the Job: ");
-			title = input.nextLine();
-			System.out.print("Enter Job Date: ");
-			date = input.nextLine();
-			System.out.println("Enter Hours: ");
-			hours = input.next();
-			System.out.print("Is it an Hourly Job: (y/n)");
-			selection = input.next();
-			if (selection.equals("y")){
-				hourlyJob = true;
-				System.out.print("Enter Price Per Hour: ");
-				pricePerHour = input.nextDouble();
-				System.out.print("Entetr Total Hours");
-				totalHours = input.nextDouble();
-				clientList.get(clientIndex).addJob(date, title, pricePerHour, totalHours);
-			}	
-			else{
-				System.out.print("Enter Price: ");
-				price = input.nextDouble();
-				clientList.get(clientIndex).addJob(date, title, price);
-			}
-
-		} while (subMenu != 0);
+	
+	   System.out.println("Add Job For Client: ");
+      for (int i = 0; i < clientList.size(); i++) {
+		System.out.printf("%d) %s %s%n", i + 1, clientList.get(i)
+				.getFName(), clientList.get(i).getLName());
+		}
+		System.out.println("0) Return To Job Menu");
+      System.out.println();
+      
+      System.out.print("Menu Option: ");
+	   menu = input.nextInt();
+		input.nextLine();
+      clientIndex = menu - 1;
+         
+      do {
+         if (menu != 0) {
+			   System.out.println();
+			   System.out.print("Enter A Title For The Job: ");
+			   title = input.nextLine();
+			   System.out.print("Enter Job Date: ");
+			   date = input.nextLine();
+			   System.out.print("Is It An Hourly Job(y/n): ");
+			   selection = input.next();
+			   if (selection.equals("y")){
+				   hourlyJob = true;
+				   System.out.print("Enter Price Per Hour: ");
+				   pricePerHour = input.nextDouble();
+				   System.out.print("Enter Total Hours: ");
+				   totalHours = input.nextDouble();
+				   clientList.get(clientIndex).addJob(date, title, pricePerHour, totalHours);
+			   }	
+			   else{
+				   System.out.print("Enter Price: ");
+				   price = input.nextDouble();
+				   clientList.get(clientIndex).addJob(date, title, price);
+			   }
+            System.out.println();
+         }
+         
+         System.out.printf("Would You Like To Add Another Job For %s %s(y/n): ", 
+            clientList.get(clientIndex).getFName(), clientList.get(clientIndex).getLName());
+         selection = input.next();
+         input.nextLine();
+         System.out.println();
+         
+         if(selection.equals("n")) {
+            menu = 0;
+         }
+		} while (menu != 0);
+      
+      jobMenu(input);
 	}
 
 	public static void editJobSubMenu(Scanner input, int clientIndex) {
@@ -318,10 +343,10 @@ public class Menu {
 			System.out.println("0) Exit");
 			System.out.print("Sub Menu Option: ");
 
-			subMenu = input.nextInt();
+			menu = input.nextInt();
 			input.nextLine();
 
-			switch (subMenu) {
+			switch (menu) {
 			case 1:
 				System.out.print("Enter New Title: ");
 				break;
@@ -365,7 +390,7 @@ public class Menu {
 				System.out.println("Invalid Selection");
 			}
 
-		} while (subMenu != 0);
+		} while (menu != 0);
 		System.exit(0);
 	}
 
@@ -378,18 +403,18 @@ public class Menu {
 						.getFName(), clientList.get(i).getLName());
 			}
 			System.out.println("0) Return To Job Menu");
-			subMenu = input.nextInt();
+			menu = input.nextInt();
 			input.nextLine();
-			clientIndex = subMenu - 1;
+			clientIndex = menu - 1;
 			System.out.println();
 
-			if (subMenu != 0) {
+			if (menu != 0) {
 				//createJobMenu(clientIndex);
 			} else {
 				jobMenu(input);
 			}
 
-		} while (subMenu != 0);
+		} while (menu != 0);
 
 		System.exit(0);
 	}
@@ -399,18 +424,24 @@ public class Menu {
 		Date dateobj = new Date();
       int clientIndex;
       
-      System.out.println("What client would you like to edit?");
+      System.out.println("Print Invoice For Client: ");
       for(int i = 0; i < clientList.size() ;i++) {
-         System.out.printf("%d %s %s%n", i+1, clientList.get(i).getFName(), clientList.get(i).getLName());
+         System.out.printf("%d) %s %s%n", i+1, clientList.get(i).getFName(), 
+            clientList.get(i).getLName());
       }
-      System.out.println("0) Exit\n");
-      System.out.print("Selection: ");
-      subMenu = input.nextInt();
+      System.out.println("0) Main Menu\n");
+      System.out.print("Menu Option: ");
+      menu = input.nextInt();
+      clientIndex = menu - 1;
       input.nextLine();
+      System.out.println();
       
-      clientIndex = subMenu-1;
+      if (menu == 0) {
+         mainMenu(input);
+      } 
       
       Invoice.printInvoice(clientList.get(clientIndex), df.format(dateobj.getTime()));
+      
    }
 
 }
