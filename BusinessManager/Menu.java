@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Menu {
    
+   DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+   Date dateobj = new Date();
    private static int menu = 0;
    private static int subMenu = 0;
    private static ArrayList<Client> clientList = new ArrayList<>();
