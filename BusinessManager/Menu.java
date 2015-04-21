@@ -29,39 +29,15 @@ public class Menu {
 				jobMenu(input);
             System.out.println();
 			case 3:
-				while (subMenu != 4) {
-					System.out.println("Invoice Sub Menu: \n"
-							+ "1) Create Invoice \n"
-							+ "2) Edit Invoice Info \n"
-							+ "3) View Invoice Info \n" 
-							+ "4) Exit");
-					System.out.println();
-					System.out.printf("Sub Menu Option: ");
-					subMenu = input.nextInt();
-					System.out.println();
-					switch (subMenu) {
-					case 1:
-						System.out.println();
-						break;
-					case 2:
-						System.out.println();
-						break;
-					case 3:
-						System.out.println();
-						break;
-					case 4:
-						System.out.printf("%nExit to main menu%n");
-						break;
-					default:
-						System.out.printf("Invalid selection%n");
-					}
-				}
+				invoiceMenu(input);
 				System.out.println();
 				break;
 			case 4:
 				System.out.println("Exit to main menu");
 				break;
-
+         case 0:
+            System.out.println("Goodbye");
+            break;
 			default:
 				System.out.printf("Invalid selection%n");
 			}
@@ -84,9 +60,9 @@ public class Menu {
 					System.out.println();
 					switch (subMenu) {
 					case 1:
-                  System.out.print("Clients first name: "); 
-                  fName = input.nextLine();
-                  System.out.print("Clients last name: "); 
+                  System.out.print("Clients full name: "); 
+                  fName = input.next();
+                  //System.out.print("Clients last name: "); 
                   lName = input.nextLine();
                   System.out.print("Clients address: ");
                   address = input.nextLine();
@@ -119,6 +95,9 @@ public class Menu {
 						System.out.printf("%nMain Menu%n");
                   mainMenu(input);
 						break;
+               case 0:
+                  System.out.println("Goodbye");
+                  break;
 					default:
 						System.out.printf("Invalid selection%n");
 					}
@@ -160,11 +139,11 @@ public class Menu {
          switch(subMenu) {
             case 1:
                System.out.print("Enter New First Name: ");
-               clientList.get(clientIndex).setFName(input.next());
+               clientList.get(clientIndex).setFName(input.nextLine());
                break;
             case 2:
                System.out.print("Enter New Last Name: ");
-               clientList.get(clientIndex).setLName(input.next());
+               clientList.get(clientIndex).setLName(input.nextLine());
                break;
             case 3:
                System.out.print("Enter New Address: ");
@@ -230,7 +209,7 @@ public class Menu {
    }
    
    public static void printClientInfo(int clientIndex) {
-      System.out.println("Info for " + clientList.get(clientIndex).getFName() + " " + 
+      System.out.println("Info for: " + clientList.get(clientIndex).getFName() + " " + 
             clientList.get(clientIndex).getLName() + "\n" + 
             "Address: " + clientList.get(clientIndex).getAddress() + "\n" + 
             "City: " + clientList.get(clientIndex).getCity() + "\n" + 
@@ -241,12 +220,13 @@ public class Menu {
    }
    
    public static void jobMenu(Scanner input) {
-      while (subMenu != 4) {
+      do {
 					System.out.println("Job Sub Menu: \n" 
 							+ "1) Create Job \n"
 							+ "2) Edit Job Info \n" 
 							+ "3) View Job Info \n"
-							+ "4) Exit");
+                     + "4) Main Menu"
+							+ "0) Exit\n");
 					System.out.println();
 					System.out.printf("Sub Menu Option: ");
 					subMenu = input.nextInt();
@@ -263,12 +243,54 @@ public class Menu {
 						break;
 					case 4:
 						System.out.printf("%nExit to main menu%n");
+                  mainMenu(input);
 						break;
+               case 0:
+                  System.out.println("Good bye");
+                  break;
 					default:
 						System.out.printf("Invalid selection%n");
 					}
-				}
+				} while (subMenu != 0);
+            
 				System.out.println();
-				break;
+            System.exit(0);
+   }
+   
+   public static void invoiceMenu(Scanner input) {
+      do {
+					System.out.println("Invoice Sub Menu: \n"
+							+ "1) Create Invoice \n"
+							+ "2) Edit Invoice Info \n"
+							+ "3) View Invoice Info \n" 
+                     + "4) Main Menu\n"
+							+ "0) Exit\n");
+					System.out.println();
+					System.out.printf("Sub Menu Option: ");
+					subMenu = input.nextInt();
+					System.out.println();
+					switch (subMenu) {
+					case 1:
+						System.out.println();
+						break;
+					case 2:
+						System.out.println();
+						break;
+					case 3:
+						System.out.println();
+						break;
+					case 4:
+						System.out.printf("%nExit to main menu%n");
+                  mainMenu(input);
+						break;
+               case 0:
+                  System.out.println("Goodbye");
+                  break;
+					default:
+						System.out.printf("Invalid selection%n");
+					}
+				}while (subMenu != 0);
+            
+            System.exit(0);
    }
 }
