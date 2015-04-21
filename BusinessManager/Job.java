@@ -2,9 +2,11 @@
 * Created by Kent Allen and Drew Adams
 * 4/01/2015
 ************************************/
+
+// Instance class
 public class Job {
 	
-	// *** declaring variables ***
+	// *** fields ***
 	private String title, date;
 	private double price, hours;
 	
@@ -24,7 +26,7 @@ public class Job {
 	
 	//  *** methods ***
 	
-	// getter
+	// getters
 	public double getHours() {
 		return hours;
 	}

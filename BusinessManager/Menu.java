@@ -19,6 +19,8 @@ public class Menu {
 					+ " 0) Exit\n");
 			System.out.print("Menu Option: ");
 			menu = input.nextInt();
+         input.nextLine();
+         
 			System.out.println();
 			switch (menu) {
 			case 1:
@@ -53,16 +55,18 @@ public class Menu {
 							+ "2) Edit Client Info \n"
 							+ "3) View Client Info \n" 
                      + "4) Main Menu\n"
-							+ "0) Exit\n");
+							+ "0) Exit");
 					System.out.println();
 					System.out.printf("Sub Menu Option: ");
 					subMenu = input.nextInt();
+               input.nextLine();
+               
 					System.out.println();
 					switch (subMenu) {
 					case 1:
                   System.out.print("Clients full name: "); 
-                  fName = input.next();
-                  //System.out.print("Clients last name: "); 
+                  fName = input.nextLine();
+                  System.out.print("Clients last name: "); 
                   lName = input.nextLine();
                   System.out.print("Clients address: ");
                   address = input.nextLine();
@@ -111,8 +115,11 @@ public class Menu {
          for(int i = 0; i < clientList.size() ;i++) {
             System.out.printf("%d %s %s%n", i+1, clientList.get(i).getFName(), clientList.get(i).getLName());
          }
-         System.out.println("0) Exit");
+         System.out.println("0) Exit\n");
+         System.out.print("Selection: ");
          subMenu = input.nextInt();
+         input.nextLine();
+         
          clientIndex = subMenu-1;
          
          editClientSubMenu(input, clientIndex);
@@ -122,7 +129,7 @@ public class Menu {
    }
    
    public static void editClientSubMenu(Scanner input, int clientIndex) {
-      
+      String selection;
       do {
          System.out.println("What would you like to edit?");
          System.out.println("1) First Name");
@@ -135,6 +142,7 @@ public class Menu {
          System.out.print("Sub Menu Option: ");
          
          subMenu = input.nextInt();
+         input.nextLine();
          
          switch(subMenu) {
             case 1:
@@ -165,7 +173,10 @@ public class Menu {
                break;
             case 5:
                System.out.print("Does This Client Recieve A Senior Discount?(y/n): ");
-               if(input.next() == "y")
+               selection = input.next();
+               
+              
+               if(selection.equals("y"))
                   clientList.get(clientIndex).setSeniorDiscount(true);
                else
                   clientList.get(clientIndex).setSeniorDiscount(false);

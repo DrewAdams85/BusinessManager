@@ -4,9 +4,10 @@
 ************************************/
 import java.util.ArrayList;
 
+// Instance class
 public class Client {
 	
-	// *** declaring variables ***
+	// *** fields ***
 	private String fName, lName, address, city, state, zip, phone;
    private ArrayList<Job> jobList = new ArrayList<>();
    private boolean seniorDiscount;

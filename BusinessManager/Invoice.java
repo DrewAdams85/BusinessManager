@@ -2,6 +2,8 @@
 * Created by Kent Allen and Drew Adams
 * 4/01/2015
 ************************************/
+
+// Static class
 public class Invoice {
    private static double totalPrice, seniorDiscount;
    
