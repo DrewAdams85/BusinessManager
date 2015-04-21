@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Menu {
    
+   DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+   Date dateobj = new Date();
    private static int menu = 0;
    private static int subMenu = 0;
    private static ArrayList<Client> clientList = new ArrayList<>();
@@ -229,44 +231,168 @@ public class Menu {
    }
    
    public static void jobMenu(Scanner input) {
-      do {
-					System.out.println("Job Sub Menu: \n" 
+		while (subMenu != 4) {
+			System.out
+					.println("Job Sub Menu: \n" 
 							+ "1) Create Job \n"
 							+ "2) Edit Job Info \n" 
 							+ "3) View Job Info \n"
-                     + "4) Main Menu"
-							+ "0) Exit\n");
-					System.out.println();
-					System.out.printf("Sub Menu Option: ");
-					subMenu = input.nextInt();
-               input.nextLine();
-					System.out.println();
-               
-					switch (subMenu) {
-					case 1:
-						System.out.println();
-						break;
-					case 2:
-						System.out.println();
-						break;
-					case 3:
-						System.out.println();
-						break;
-					case 4:
-						System.out.printf("%nExit to main menu%n");
-                  mainMenu(input);
-						break;
-               case 0:
-                  System.out.println("Good bye");
-                  break;
-					default:
-						System.out.printf("Invalid selection%n");
-					}
-				} while (subMenu != 0);
-            
+							+ "4) Exit");
+			System.out.println();
+			System.out.printf("Sub Menu Option: ");
+			subMenu = input.nextInt();
+			input.nextLine();
+			System.out.println();
+			switch (subMenu) {
+			case 1:
+				createJobMenu(input, menu);
 				System.out.println();
-            System.exit(0);
-   }
+				break;
+			case 2:
+				editJobSubMenu(input, menu);
+				break;
+			case 3:
+				//viewClientJobMenu(input, menu);
+				break;
+			case 4:
+				System.out.printf("Exit to Job Menu:");
+				jobMenu(input);
+				break;
+			default:
+				System.out.printf("Invalid selection%n");
+			}
+		}
+		System.out.println();
+
+	}
+
+	public static void createJobMenu(Scanner input, int clientIndex) {
+		String title, date, hours, selection;
+		double price = 0, pricePerHour = 0, totalHours = 0;
+		boolean hourlyJob = false;
+		
+		do {
+			System.out.println("For which client would you like to add a job?");
+			for (int i = 0; i < clientList.size(); i++) {
+				System.out.printf("%d %s %s%n", i + 1, clientList.get(i)
+						.getFName(), clientList.get(i).getLName());
+			}
+			System.out.println("0) Return To Job Menu");
+			subMenu = input.nextInt();
+			input.nextLine();
+			clientIndex = subMenu - 1;
+			System.out.println();
+			System.out.print("Enter a title for the Job: ");
+			title = input.nextLine();
+			System.out.print("Enter Job Date: ");
+			date = input.nextLine();
+			System.out.println("Enter Hours: ");
+			hours = input.next();
+			System.out.print("Is it an Hourly Job: (y/n)");
+			selection = input.next();
+			if (selection.equals("y")){
+				hourlyJob = true;
+				System.out.print("Enter Price Per Hour: ");
+				pricePerHour = input.nextDouble();
+				System.out.print("Entetr Total Hours");
+				totalHours = input.nextDouble();
+				clientList.get(clientIndex).addJob(date, title, pricePerHour, totalHours);
+			}	
+			else{
+				System.out.print("Enter Price: ");
+				price = input.nextDouble();
+				clientList.get(clientIndex).addJob(date, title, price);
+			}
+
+		} while (subMenu != 0);
+	}
+
+	public static void editJobSubMenu(Scanner input, int clientIndex) {
+		do {
+			System.out.println("What job would you like to edit?");
+			System.out.println("1) Title");
+			System.out.println("2) Date");
+			System.out.println("3) Price");
+			System.out.println("4) Price Per Hour");
+			System.out.println("5) Return to Client Menu");
+			System.out.println("0) Exit");
+			System.out.print("Sub Menu Option: ");
+
+			subMenu = input.nextInt();
+			input.nextLine();
+
+			switch (subMenu) {
+			case 1:
+				System.out.print("Enter New Title: ");
+				break;
+			case 2:
+				System.out.print("Enter New Last Name: ");
+				clientList.get(clientIndex).setLName(input.next());
+				break;
+			case 3:
+				System.out.print("Enter New Address: ");
+				clientList.get(clientIndex).setAddress(input.nextLine());
+				System.out.println();
+				System.out.print("Enter New City: ");
+				clientList.get(clientIndex).setCity(input.nextLine());
+				System.out.println();
+				System.out.print("Enter New State: ");
+				clientList.get(clientIndex).setState(input.nextLine());
+				System.out.println();
+				System.out.print("Enter New Zip: ");
+				clientList.get(clientIndex).setZip(input.nextLine());
+				System.out.println();
+				break;
+			case 4:
+				System.out.print("Enter New Phone Number: ");
+				clientList.get(clientIndex).setPhone(input.next());
+				break;
+			case 5:
+				System.out
+						.print("Does This Client Recieve A Senior Discount?(y/n): ");
+				if (input.next() == "y")
+					clientList.get(clientIndex).setSeniorDiscount(true);
+				else
+					clientList.get(clientIndex).setSeniorDiscount(false);
+				break;
+			case 6:
+				clientMenu(input);
+				break;
+			case 0:
+				System.out.println("Good Bye");
+				break;
+			default:
+				System.out.println("Invalid Selection");
+			}
+
+		} while (subMenu != 0);
+		System.exit(0);
+	}
+
+	public static void viewClientJobMenu(Scanner input) {
+		int clientIndex;
+		do {
+			System.out.println("For which client would you like to add a job?");
+			for (int i = 0; i < clientList.size(); i++) {
+				System.out.printf("%d %s %s%n", i + 1, clientList.get(i)
+						.getFName(), clientList.get(i).getLName());
+			}
+			System.out.println("0) Return To Job Menu");
+			subMenu = input.nextInt();
+			input.nextLine();
+			clientIndex = subMenu - 1;
+			System.out.println();
+
+			if (subMenu != 0) {
+				//createJobMenu(clientIndex);
+			} else {
+				jobMenu(input);
+			}
+
+		} while (subMenu != 0);
+
+		System.exit(0);
+	}
    
    public static void printInvoice(Scanner input) {
       DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
@@ -286,4 +412,6 @@ public class Menu {
       
       Invoice.printInvoice(clientList.get(clientIndex), df.format(dateobj.getTime()));
    }
+
 }
+
