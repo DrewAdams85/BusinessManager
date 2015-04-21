@@ -31,7 +31,7 @@ public class Menu {
 				jobMenu(input);
             System.out.println();
 			case 3:
-				//printInvoice(input);
+				printInvoice(input);
 				System.out.println();
 				break;
 			case 4:
@@ -268,4 +268,22 @@ public class Menu {
             System.exit(0);
    }
    
+   public static void printInvoice(Scanner input) {
+      DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		Date dateobj = new Date();
+      int clientIndex;
+      
+      System.out.println("What client would you like to edit?");
+      for(int i = 0; i < clientList.size() ;i++) {
+         System.out.printf("%d %s %s%n", i+1, clientList.get(i).getFName(), clientList.get(i).getLName());
+      }
+      System.out.println("0) Exit\n");
+      System.out.print("Selection: ");
+      subMenu = input.nextInt();
+      input.nextLine();
+      
+      clientIndex = subMenu-1;
+      
+      Invoice.printInvoice(clientList.get(clientIndex), df.format(dateobj.getTime()));
+   }
 }
