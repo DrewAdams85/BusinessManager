@@ -5,13 +5,13 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Menu {
-
 	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	Date dateobj = new Date();
+   
 	private static int menu = 0;
 	private static ArrayList<Client> clientList = new ArrayList<>();
 	private static ArrayList<Job> jobsList = new ArrayList<>();
-
+   
 	public static void mainMenu(Scanner input) {
 		do {
 			System.out
@@ -133,14 +133,9 @@ public class Menu {
 	public static void editClientSubMenu(Scanner input, int clientIndex) {
 		String selection;
 		do {
-			System.out.println("What would you like to edit?");
-			System.out.println("1) First Name");
-			System.out.println("2) Last Name");
-			System.out.println("3) Address");
-			System.out.println("4) Phone Number");
-			System.out.println("5) Senior Discount");
-			System.out.println("6) Return to Client Menu");
-			System.out.println("0) Exit");
+			System.out.println("What would you like to edit?\n" + "1) First Name\n" 
+            + "2) Last Name\n" + "3) Address\n" + "4) Phone Number\n" 
+            + "5) Senior Discount\n" + "6) Return to Client Menu\n" + "0) Exit\n");
 			System.out.print("Sub Menu Option: ");
 
 			menu = input.nextInt();
