@@ -27,7 +27,7 @@ public class Invoice {
       System.out.println();
       
       if(client.getSeniorDiscount())
-         System.out.printf("%n%15s %43s%n", "Senior Discount (10%%)", 
+         System.out.printf("%n%21s %36s%n", "Senior Discount (10%%)", 
             "-"+String.format("%.2f",seniorDiscount(client)));
       
       System.out.println("-----------------------------------------------------------");
