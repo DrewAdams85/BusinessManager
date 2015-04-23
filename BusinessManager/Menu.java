@@ -341,11 +341,12 @@ public class Menu {
 			System.out.printf("%d) %s %s%n", c + 1, clientList.get(c)
 					.getFName(), clientList.get(c).getLName());
 		}
-
+		
 		System.out.println("0) Return To Job Menu");
 		System.out.println();
 		System.out.print("Menu Option: ");
 		menu = input.nextInt();
+		System.out.println();
 		input.nextLine();
 		clientIndex = menu - 1;
 
@@ -436,8 +437,9 @@ public class Menu {
 				System.out.printf("%d %s %n", j + 1, clientList.get(clientIndex).getJobList().get(j).getTitle());
 			}
 			System.out.println("0) Return To Job Menu");
-			menu = input.nextInt();
+			System.out.println();
 			System.out.print("Menu Option: ");
+			menu = input.nextInt();
 			input.nextLine();
 			System.out.println();
 			
@@ -451,9 +453,15 @@ public class Menu {
 				jobMenu(input);
 			}
 			System.out.println();
+<<<<<<< HEAD
 		} while (menu != 0);
 		System.exit(0);
 		
+=======
+			
+		} while (menu != 0);
+		System.exit(0);
+>>>>>>> origin/master
 	}
 
 	public static void printClientJobInfo(int clientIndex) {
@@ -496,5 +504,4 @@ public class Menu {
 		Invoice.printInvoice(clientList.get(clientIndex),
 				df.format(dateobj.getTime()));
 	}
-
 }
