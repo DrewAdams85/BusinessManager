@@ -1,0 +1,75 @@
+0
+Mow Lawn and Trim Edges
+4/23/2015
+25.00
+0
+0
+Trim Hedges in the Shape of an 'A'
+4/23/2015
+25.00
+1
+0
+Spring Cleanup
+4/23/2015
+30.00
+2
+1
+Rake Leaves
+4/22/2015
+35.00
+0
+1
+Plant Tulips
+4/22/2015
+35.00
+3
+1
+Plant Pine Tree
+4/22/2015
+400.00
+2
+2
+Mow Lawn and Trim Edges
+4/10/2015
+35.00
+0
+2
+Spring Cleaning
+4/10/2015
+25.00
+4
+2
+Lawn Aeration
+4/10/2015
+30.00
+1
+3
+Cleaned out Gutters
+4/13/2015
+25.00
+0
+3
+Weed Killer Application
+4/13/2015
+30.00
+.5
+3
+Lawn Aeration
+4/13/2015
+35.00
+1
+4
+Mow Lawn and Trim Edges
+4/15/2015
+55.00
+0
+4
+Spring Cleaning
+4/15/2015
+25.00
+4
+4
+Pine Tree Removal
+4/15/2015
+50.00
+5
