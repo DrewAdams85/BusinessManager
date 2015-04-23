@@ -9,9 +9,10 @@ public class Menu {
 	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	Date dateobj = new Date();
 	private static int menu = 0;
-	private static ArrayList<Client> clientList = new ArrayList<>();
+	private static ArrayList<Client> clientList;
 
-	public static void mainMenu(Scanner input) {
+	public static void mainMenu(Scanner input, ArrayList<Client> clientList) {
+      this.clientList = clientList;
 		do {
 			System.out
 					.println("Main Menu: \n" 
