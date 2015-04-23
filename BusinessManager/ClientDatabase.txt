@@ -1,0 +1,37 @@
+Margie
+Posh
+1001 Binary Ln.
+Sugarhouse
+Utah
+84108
+true
+Drew
+Adams
+202 Main St.
+Bountiful
+Utah
+84010
+false
+Kent
+Allen
+101 Main St.
+Sandy
+Utah
+84105
+801-555-5515
+false
+Jane
+Doe
+101 Database Ave.
+Salt Lake City
+Utah
+false
+John
+Smith
+123 Java Cir.
+Salt Lake City
+Utah
+84105
+true
+
+
