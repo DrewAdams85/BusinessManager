@@ -453,15 +453,10 @@ public class Menu {
 				jobMenu(input);
 			}
 			System.out.println();
-<<<<<<< HEAD
+
 		} while (menu != 0);
 		System.exit(0);
 		
-=======
-			
-		} while (menu != 0);
-		System.exit(0);
->>>>>>> origin/master
 	}
 
 	public static void printClientJobInfo(int clientIndex) {
