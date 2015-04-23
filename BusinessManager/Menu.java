@@ -83,8 +83,7 @@ public class Menu {
 				zip = input.nextLine();
 				System.out.print("Clients Phone Number: ");
 				phone = input.nextLine();
-				System.out
-						.print("Does This Client Get A Senior Discoiunt?(y/n): ");
+				System.out.print("Does This Client Get A Senior Discoiunt?(y/n): ");
 				selection = input.next();
 				if (selection.equals("y"))
 					seniorDiscount = true;
@@ -397,9 +396,9 @@ public class Menu {
 
 				if (selection.equals("y"))
 					System.out.print("Enter Hours: ");
-				clientList.get(clientIndex).getJobList().get(clientIndex).setTotalHours(input.nextDouble());
-				System.out.print("Enter charge per hour: ");
-				clientList.get(clientIndex).getJobList().get(clientIndex).setPricePerHour(input.nextDouble());
+					clientList.get(clientIndex).getJobList().get(clientIndex).setTotalHours(input.nextDouble());
+					System.out.print("Enter charge per hour: ");
+					clientList.get(clientIndex).getJobList().get(clientIndex).setPricePerHour(input.nextDouble());
 				break;
 			case 6:
 				jobMenu(input);
@@ -452,10 +451,9 @@ public class Menu {
 				jobMenu(input);
 			}
 			System.out.println();
-			//this is breaking on 0
 		} while (menu != 0);
-		// this did not fix it. It is getting returned -1. too tired to troubleshoot it. sorry m8
-		jobMenu(input);
+		System.exit(0);
+		
 	}
 
 	public static void printClientJobInfo(int clientIndex) {
