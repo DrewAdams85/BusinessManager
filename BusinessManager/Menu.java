@@ -9,10 +9,11 @@ public class Menu {
 	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	Date dateobj = new Date();
 	private static int menu = 0;
-	private static ArrayList<Client> clientList;
+   //private static LoadData load = new LoadData();
+	private static ArrayList<Client> clientList = LoadData.loadClientData();
+   //private static ArrayList<Client> clientList = new ArrayList<>();
 
-	public static void mainMenu(Scanner input, ArrayList<Client> clientList) {
-      this.clientList = clientList;
+	public static void mainMenu(Scanner input) {
 		do {
 			System.out
 					.println("Main Menu: \n" 
