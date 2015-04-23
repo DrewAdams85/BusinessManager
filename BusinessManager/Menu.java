@@ -5,13 +5,12 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Menu {
+
 	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	Date dateobj = new Date();
-   
 	private static int menu = 0;
 	private static ArrayList<Client> clientList = new ArrayList<>();
-	private static ArrayList<Job> jobsList = new ArrayList<>();
-   
+
 	public static void mainMenu(Scanner input) {
 		do {
 			System.out
@@ -122,9 +121,7 @@ public class Menu {
 			System.out.print("Selection: ");
 			menu = input.nextInt();
 			input.nextLine();
-
 			clientIndex = menu - 1;
-
 			editClientSubMenu(input, clientIndex);
 
 		} while (menu != 0);
@@ -133,9 +130,14 @@ public class Menu {
 	public static void editClientSubMenu(Scanner input, int clientIndex) {
 		String selection;
 		do {
-			System.out.println("What would you like to edit?\n" + "1) First Name\n" 
-            + "2) Last Name\n" + "3) Address\n" + "4) Phone Number\n" 
-            + "5) Senior Discount\n" + "6) Return to Client Menu\n" + "0) Exit\n");
+			System.out.println("What would you like to edit?");
+			System.out.println("1) First Name");
+			System.out.println("2) Last Name");
+			System.out.println("3) Address");
+			System.out.println("4) Phone Number");
+			System.out.println("5) Senior Discount");
+			System.out.println("6) Return to Client Menu");
+			System.out.println("0) Exit");
 			System.out.print("Sub Menu Option: ");
 
 			menu = input.nextInt();
@@ -217,11 +219,11 @@ public class Menu {
 	public static void printClientInfo(int clientIndex) {
 		System.out.println("Info for: "
 				+ clientList.get(clientIndex).getFName() + " "
-				+ clientList.get(clientIndex).getLName() + "\n" 
-				+ "Address: " + clientList.get(clientIndex).getAddress() + "\n" 
-				+ "City: " + clientList.get(clientIndex).getCity() + "\n" 
-				+ "State: "	+ clientList.get(clientIndex).getState() + "\n" 
-				+ "Zip: " + clientList.get(clientIndex).getZip() + "\n"
+				+ clientList.get(clientIndex).getLName() + "\n" + "Address: "
+				+ clientList.get(clientIndex).getAddress() + "\n" + "City: "
+				+ clientList.get(clientIndex).getCity() + "\n" + "State: "
+				+ clientList.get(clientIndex).getState() + "\n" + "Zip: "
+				+ clientList.get(clientIndex).getZip() + "\n"
 				+ "Phone Number: " + clientList.get(clientIndex).getPhone()
 				+ "\n" + "Senior Discount: "
 				+ clientList.get(clientIndex).getSeniorDiscount() + "\n");
@@ -229,9 +231,12 @@ public class Menu {
 
 	public static void jobMenu(Scanner input) {
 		do {
-			System.out.println("Job Sub Menu: \n" + "1) Create Job \n"
-					+ "2) Edit Job Info \n" + "3) View Job Info \n"
-					+ "4) Main Menu \n" + "0) Exit");
+			System.out.println("Job Sub Menu: \n" 
+					+ "1) Create Job \n"
+					+ "2) Edit Job Info \n" 
+					+ "3) View Job Info \n"
+					+ "4) Main Menu \n" 
+					+ "0) Exit");
 			System.out.println();
 			System.out.printf("Job Menu Option: ");
 			menu = input.nextInt();
@@ -246,7 +251,7 @@ public class Menu {
 				editJobSubMenu(input, menu);
 				break;
 			case 3:
-				// viewClientJobMenu(input, menu);
+				viewClientJobMenu(input);
 				break;
 			case 4:
 				System.out.println("Exit to Main Menu");
@@ -325,43 +330,40 @@ public class Menu {
 	}
 
 	public static void editJobSubMenu(Scanner input, int clientIndex) {
-		
-		String title = null, date = null, selection;
-		double hours = 0.0;
-		double price = 0, pricePerHour = 0, totalHours = 0;
-		boolean hourlyJob = false;
+		String selection;
 
 		System.out.println("Select Client to edit Job");
-		for (int i = 0; i < clientList.size(); i++) {
-			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i)
-					.getFName(), clientList.get(i).getLName());
+		for (int c = 0; c < clientList.size(); c++) {
+			System.out.printf("%d) %s %s%n", c + 1, clientList.get(c)
+					.getFName(), clientList.get(c).getLName());
 		}
+
 		System.out.println("0) Return To Job Menu");
 		System.out.println();
-		
-		int jobIndex;
-		
 		System.out.print("Menu Option: ");
 		menu = input.nextInt();
 		input.nextLine();
 		clientIndex = menu - 1;
-		//second question edit job
+
 		System.out.println("Select the Job to edit");
-		for (int j = 0; j < jobsList.size(); j++) {
-			System.out.printf("%d %s %n", j + 1, jobsList.get(j).getTitle());
+		for (int j = 0; j < clientList.get(clientIndex).getJobList().size(); j++) {
+			System.out.printf("%d %s %n", j + 1, clientList.get(clientIndex).getJobList().get(j).getTitle());
 		}
 		System.out.println("0) Return To Job Menu");
 		menu = input.nextInt();
 		input.nextLine();
-		jobIndex = menu - 1;
+		clientIndex = menu - 1;
 		System.out.println();
 
 		do {
-			System.out.println("What job would you like to edit?");
-			System.out.println("1) Edit a Job");
-			System.out.println("2) Return to Client Menu");
+			System.out.println("What would you like to edit?");
+			System.out.println("1) Title");
+			System.out.println("2) Date");
+			System.out.println("3) Price");
+			System.out.println("4) Hours");
+			System.out.println("5) Set Job to charge hourly");
+			System.out.println("6) Return to Job Menu");
 			System.out.println("0) Exit");
-
 			System.out.print("Sub Menu Option: ");
 
 			menu = input.nextInt();
@@ -369,24 +371,33 @@ public class Menu {
 
 			switch (menu) {
 			case 1:
-				System.out.print("Is It An Hourly Job(y/n): ");
-				selection = input.next();
-				if (selection.equals("y")) {
-					hourlyJob = true;
-					System.out.print("Enter Price Per Hour: ");
-					pricePerHour = input.nextDouble();
-					System.out.print("Enter Total Hours: ");
-					totalHours = input.nextDouble();
-					jobsList.set(jobIndex, null).setHours(hours);
-				} else {
-					System.out.print("Enter Price: ");
-					price = input.nextDouble();
-					clientList.set(clientIndex, null)
-							.addJob(date, title, price);
-				}
+				System.out.print("Enter New Job Title: ");
+				clientList.get(clientIndex).getJobList().get(clientIndex).setTitle(input.nextLine());
 				break;
 			case 2:
-				mainMenu(input);
+				System.out.print("Enter New Date: ");
+				clientList.get(clientIndex).getJobList().get(clientIndex).setDate(input.nextLine());
+				break;
+			case 3:
+				System.out.print("Enter New Price: ");
+				clientList.get(clientIndex).getJobList().get(clientIndex).setPrice(input.nextDouble());
+				break;
+			case 4:
+				System.out.print("Enter New Hours: ");
+				clientList.get(clientIndex).getJobList().get(clientIndex).setHours(input.nextDouble());
+				break;
+			case 5:
+				System.out.print("Change Job to charge hourly (y/n):");
+				selection = input.next();
+
+				if (selection.equals("y"))
+					System.out.print("Enter Hours: ");
+				clientList.get(clientIndex).getJobList().get(clientIndex).setTotalHours(input.nextDouble());
+				System.out.print("Enter charge per hour: ");
+				clientList.get(clientIndex).getJobList().get(clientIndex).setPricePerHour(input.nextDouble());
+				break;
+			case 6:
+				jobMenu(input);
 				break;
 			case 0:
 				System.out.println("Good Bye");
@@ -394,7 +405,6 @@ public class Menu {
 			default:
 				System.out.println("Invalid Selection");
 			}
-
 		} while (menu != 0);
 		System.exit(0);
 	}
@@ -402,10 +412,22 @@ public class Menu {
 	public static void viewClientJobMenu(Scanner input) {
 		int clientIndex;
 		do {
-			System.out.println("For which client would you like to add a job?");
-			for (int i = 0; i < clientList.size(); i++) {
-				System.out.printf("%d %s %s%n", i + 1, clientList.get(i)
-						.getFName(), clientList.get(i).getLName());
+			System.out.println("Select Client to view Job");
+			for (int c = 0; c < clientList.size(); c++) {
+				System.out.printf("%d) %s %s%n", c + 1, clientList.get(c)
+						.getFName(), clientList.get(c).getLName());
+			}
+
+			System.out.println("0) Return To Job Menu");
+			System.out.println();
+			System.out.print("Menu Option: ");
+			menu = input.nextInt();
+			input.nextLine();
+			clientIndex = menu - 1;
+
+			System.out.println("Select the Job to view");
+			for (int j = 0; j < clientList.get(clientIndex).getJobList().size(); j++) {
+				System.out.printf("%d %s %n", j + 1, clientList.get(clientIndex).getJobList().get(j).getTitle());
 			}
 			System.out.println("0) Return To Job Menu");
 			menu = input.nextInt();
@@ -414,28 +436,31 @@ public class Menu {
 			System.out.println();
 
 			if (menu != 0) {
-				// createJobMenu(clientIndex);
+				printClientJobInfo(clientIndex);
+				createJobMenu(input, menu);
 			} else {
 				jobMenu(input);
 			}
-
+			//this is breaking on 0
 		} while (menu != 0);
-
-		System.exit(0);
+		// this did not fix it. It is getting returned -1. too tired to troubleshoot it. sorry m8
+		jobMenu(input);
 	}
 
-//	public static void printClientJobInfo(int clientIndex) {
-//		System.out.println("Info for: "
-//				+ jobsList.get(jobIndex).getTitle() + " "
-//				+ clientList.get(clientIndex).getTitle() + "\n" 
-//				+ "Address: " + clientList.get(clientIndex).getAddress() + "\n" 
-//				+ "City: " + clientList.get(clientIndex).getCity() + "\n" 
-//				+ "State: "	+ clientList.get(clientIndex).getState() + "\n" 
-//				+ "Zip: " + clientList.get(clientIndex).getZip() + "\n"
-//				+ "Phone Number: " + clientList.get(clientIndex).getPhone()
-//				+ "\n" + "Senior Discount: "
-//				+ clientList.get(clientIndex).getSeniorDiscount() + "\n");
-//	}
+	public static void printClientJobInfo(int clientIndex) {
+		System.out.println("Title: "
+				+ clientList.get(clientIndex).getJobList().get(clientIndex).getTitle() 
+				+ "\n" + "Date: " 
+				+ clientList.get(clientIndex).getJobList().get(clientIndex).getDate() 
+				+ "\n" + "Hours: "
+				+ clientList.get(clientIndex).getJobList().get(clientIndex).getHours()
+				+ "\n" + "Price: "
+				+ clientList.get(clientIndex).getJobList().get(clientIndex).getPrice()
+				+ "\n" + "Price Per Hour: "
+				+ clientList.get(clientIndex).getJobList().get(clientIndex).getPricePerHour()
+				+ "\n" + "Total Hours: "
+				+ clientList.get(clientIndex).getJobList().get(clientIndex).getTotalHours());
+	}
 	
 	public static void printInvoice(Scanner input) {
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
