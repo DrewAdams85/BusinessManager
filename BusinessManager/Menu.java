@@ -14,8 +14,10 @@ public class Menu {
 	public static void mainMenu(Scanner input) {
 		do {
 			System.out
-					.println("Main Menu: \n" + " 1) Client Menu \n"
-							+ " 2) Job Menu \n" + " 3) Print Invoice \n"
+					.println("Main Menu: \n" 
+							+ " 1) Client Menu \n"
+							+ " 2) Job Menu \n" 
+							+ " 3) Print Invoice \n"
 							+ " 0) Exit\n");
 			System.out.print("Menu Option: ");
 			menu = input.nextInt();
@@ -53,9 +55,12 @@ public class Menu {
 		String fName, lName, address, city, state, zip, phone, selection;
 		boolean seniorDiscount = false;
 		do {
-			System.out.println("Client Sub Menu: \n" + "1) Create Client \n"
-					+ "2) Edit Client Info \n" + "3) View Client Info \n"
-					+ "4) Main Menu\n" + "0) Exit");
+			System.out.println("Client Sub Menu: \n" 
+					+ "1) Create Client \n"
+					+ "2) Edit Client Info \n" 
+					+ "3) View Client Info \n"
+					+ "4) Main Menu\n" 
+					+ "0) Exit");
 			System.out.println();
 			System.out.printf("Sub Menu Option: ");
 			menu = input.nextInt();
@@ -422,6 +427,8 @@ public class Menu {
 			System.out.println();
 			System.out.print("Menu Option: ");
 			menu = input.nextInt();
+			System.out.println();
+			
 			input.nextLine();
 			clientIndex = menu - 1;
 
@@ -431,16 +438,20 @@ public class Menu {
 			}
 			System.out.println("0) Return To Job Menu");
 			menu = input.nextInt();
+			System.out.print("Menu Option: ");
 			input.nextLine();
+			System.out.println();
+			
 			clientIndex = menu - 1;
 			System.out.println();
 
 			if (menu != 0) {
 				printClientJobInfo(clientIndex);
-				createJobMenu(input, menu);
+				jobMenu(input);
 			} else {
 				jobMenu(input);
 			}
+			System.out.println();
 			//this is breaking on 0
 		} while (menu != 0);
 		// this did not fix it. It is getting returned -1. too tired to troubleshoot it. sorry m8
@@ -460,6 +471,7 @@ public class Menu {
 				+ clientList.get(clientIndex).getJobList().get(clientIndex).getPricePerHour()
 				+ "\n" + "Total Hours: "
 				+ clientList.get(clientIndex).getJobList().get(clientIndex).getTotalHours());
+		System.out.println();
 	}
 	
 	public static void printInvoice(Scanner input) {
@@ -485,7 +497,6 @@ public class Menu {
 
 		Invoice.printInvoice(clientList.get(clientIndex),
 				df.format(dateobj.getTime()));
-
 	}
 
 }
