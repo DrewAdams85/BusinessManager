@@ -70,6 +70,7 @@ public class ClientMenu {
 				System.out.println("Invalid selection");
 			}
 		} while (menu != 0);
+      System.exit(0);
 	}
    
    public static void editClientMenu(Scanner input) {
@@ -80,12 +81,16 @@ public class ClientMenu {
 				System.out.printf("%d %s %s%n", i + 1, clientList.get(i)
 						.getFName(), clientList.get(i).getLName());
 			}
-			System.out.println("0) Exit\n");
+			System.out.println("0) Client Menu\n");
 			System.out.print("Selection: ");
 			menu = input.nextInt();
 			input.nextLine();
 			clientIndex = menu - 1;
-			editClientSubMenu(input, clientIndex);
+			
+         if(menu == 0)
+            clientMenu(input, clientList);
+         
+         editClientSubMenu(input, clientIndex);
 
 		} while (menu != 0);
 	}
