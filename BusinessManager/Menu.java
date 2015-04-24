@@ -9,9 +9,7 @@ public class Menu {
 	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	Date dateobj = new Date();
 	private static int menu = 0;
-   //private static LoadData load = new LoadData();
-	private static ArrayList<Client> clientList = LoadData.loadClientData();
-   //private static ArrayList<Client> clientList = new ArrayList<>();
+   private static ArrayList<Client> clientList = LoadData.loadClientData();
 
 	public static void mainMenu(Scanner input) {
 		do {
@@ -202,12 +200,14 @@ public class Menu {
 
 	public static void viewClientMenu(Scanner input) {
 		int clientIndex;
+      String selection;
 		System.out.println("What client would you like to view?");
 		for (int i = 0; i < clientList.size(); i++) {
 			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i)
 					.getFName(), clientList.get(i).getLName());
 		}
 		System.out.println("0) Return To Client Menu");
+      System.out.print("Selection: ");
 		menu = input.nextInt();
 		input.nextLine();
 
@@ -216,6 +216,13 @@ public class Menu {
 
 		if (menu != 0) {
 			printClientInfo(clientIndex);
+         System.out.print("Would You Like To View Another Client?(y/n): ");
+         selection = input.nextLine();
+         System.out.println();
+         
+         if (selection.equals("y"))
+            viewClientMenu(input);
+         
 			clientMenu(input);
 		} else {
 			clientMenu(input);

@@ -1,17 +1,19 @@
-Margie
+Margie 
 Posh
 1001 Binary Ln.
 Sugarhouse
 Utah
 84108
-true
+123-456-7890
+false
 Drew
 Adams
 202 Main St.
 Bountiful
 Utah
 84010
-false
+123-456-7890
+true
 Kent
 Allen
 101 Main St.
@@ -25,6 +27,8 @@ Doe
 101 Database Ave.
 Salt Lake City
 Utah
+84093
+123-456-7890
 false
 John
 Smith
@@ -32,6 +36,5 @@ Smith
 Salt Lake City
 Utah
 84105
+123-456-7890
 true
-
-
