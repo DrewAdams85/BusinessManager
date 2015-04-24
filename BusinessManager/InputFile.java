@@ -1,3 +1,6 @@
+/***************************************
+ * Class acquired in CSIS 1340
+ **************************************/
 public class InputFile extends Keyboard
 {
     

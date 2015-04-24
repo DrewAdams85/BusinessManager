@@ -1,3 +1,7 @@
+/***************************************
+ * Class acquired from CSIS 1340
+ **************************************/
+ 
 import java.io.*;
 /**
   Class TextReader provides methods for reading character type data an input
