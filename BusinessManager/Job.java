@@ -31,7 +31,7 @@ public class Job {
 	public double getHours() {
 		return hours;
 	}
-	
+
 	public double getTotalHours() {
 		return totalHours;
 	}
@@ -39,7 +39,7 @@ public class Job {
 	public double getPricePerHour() {
 		return pricePerHour;
 	}
-	
+
 	public double getPrice() {
 		return price;
 	}
@@ -65,11 +65,11 @@ public class Job {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
+
 	public void setPricePerHour(double pricePerHour) {
 		this.pricePerHour = pricePerHour;
 	}
-	
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
@@ -77,7 +77,7 @@ public class Job {
 	public void setHours(double hours) {
 		this.hours = hours;
 	}
-	
+
 	public void setTotalHours(double totalHours) {
 		this.totalHours = totalHours;
 	}

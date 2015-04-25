@@ -6,20 +6,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class ClientMenu {
-   private static int menu = 0;
-   private static ArrayList<Client> clientList;
-   
-   public static void clientMenu(Scanner input, ArrayList<Client> list) {
-      clientList = list;
+	private static int menu = 0;
+	private static ArrayList<Client> clientList;
+
+	public static void clientMenu(Scanner input, ArrayList<Client> list) {
+		clientList = list;
 		String fName, lName, address, city, state, zip, phone, selection;
 		boolean seniorDiscount = false;
 		do {
-			System.out.println("Client Sub Menu: \n" 
-					+ "1) Create Client \n"
-					+ "2) Edit Client Info \n" 
-					+ "3) View Client Info \n"
-					+ "4) Main Menu\n" 
-					+ "0) Exit");
+			System.out.println("Client Sub Menu: \n" + "1) Create Client \n"
+					+ "2) Edit Client Info \n" + "3) View Client Info \n"
+					+ "4) Main Menu\n" + "0) Exit");
 			System.out.println();
 			System.out.printf("Sub Menu Option: ");
 			menu = input.nextInt();
@@ -42,7 +39,8 @@ public class ClientMenu {
 				zip = input.nextLine();
 				System.out.print("Clients Phone Number: ");
 				phone = input.nextLine();
-				System.out.print("Does This Client Get A Senior Discoiunt?(y/n): ");
+				System.out
+						.print("Does This Client Get A Senior Discoiunt?(y/n): ");
 				selection = input.next();
 				if (selection.equals("y"))
 					seniorDiscount = true;
@@ -70,10 +68,10 @@ public class ClientMenu {
 				System.out.println("Invalid selection");
 			}
 		} while (menu != 0);
-      System.exit(0);
+		System.exit(0);
 	}
-   
-   public static void editClientMenu(Scanner input) {
+
+	public static void editClientMenu(Scanner input) {
 		int clientIndex;
 		do {
 			System.out.println("What client would you like to edit?");
@@ -86,16 +84,16 @@ public class ClientMenu {
 			menu = input.nextInt();
 			input.nextLine();
 			clientIndex = menu - 1;
-			
-         if(menu == 0)
-            clientMenu(input, clientList);
-         
-         editClientSubMenu(input, clientIndex);
+
+			if (menu == 0)
+				clientMenu(input, clientList);
+
+			editClientSubMenu(input, clientIndex);
 
 		} while (menu != 0);
 	}
-   
-   public static void editClientSubMenu(Scanner input, int clientIndex) {
+
+	public static void editClientSubMenu(Scanner input, int clientIndex) {
 		String selection;
 		do {
 			System.out.println("What would you like to edit?");
@@ -164,14 +162,14 @@ public class ClientMenu {
 
 	public static void viewClientMenu(Scanner input) {
 		int clientIndex;
-      String selection;
+		String selection;
 		System.out.println("What client would you like to view?");
 		for (int i = 0; i < clientList.size(); i++) {
 			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i)
 					.getFName(), clientList.get(i).getLName());
 		}
 		System.out.println("0) Return To Client Menu");
-      System.out.print("Selection: ");
+		System.out.print("Selection: ");
 		menu = input.nextInt();
 		input.nextLine();
 
@@ -180,13 +178,13 @@ public class ClientMenu {
 
 		if (menu != 0) {
 			printClientInfo(clientIndex);
-         System.out.print("Would You Like To View Another Client?(y/n): ");
-         selection = input.nextLine();
-         System.out.println();
-         
-         if (selection.equals("y"))
-            viewClientMenu(input);
-         
+			System.out.print("Would You Like To View Another Client?(y/n): ");
+			selection = input.nextLine();
+			System.out.println();
+
+			if (selection.equals("y"))
+				viewClientMenu(input);
+
 			clientMenu(input, clientList);
 		} else {
 			clientMenu(input, clientList);

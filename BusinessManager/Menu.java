@@ -13,15 +13,13 @@ public class Menu {
 	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	Date dateobj = new Date();
 	private static int menu = 0;
-   private static ArrayList<Client> clientList = LoadData.loadClientData();
+	private static ArrayList<Client> clientList = LoadData.loadClientData();
 
 	public static void mainMenu(Scanner input) {
 		do {
 			System.out
-					.println("Main Menu: \n" 
-							+ " 1) Client Menu \n"
-							+ " 2) Job Menu \n" 
-							+ " 3) Print Invoice \n"
+					.println("Main Menu: \n" + " 1) Client Menu \n"
+							+ " 2) Job Menu \n" + " 3) Print Invoice \n"
 							+ " 0) Exit\n");
 			System.out.print("Menu Option: ");
 			menu = input.nextInt();

@@ -6,24 +6,24 @@ import java.util.ArrayList;
 
 // Instance class
 public class Client {
-	
+
 	// *** fields ***
 	private String fName, lName, address, city, state, zip, phone;
-   private ArrayList<Job> jobList = new ArrayList<>();
-   private boolean seniorDiscount;
+	private ArrayList<Job> jobList = new ArrayList<>();
+	private boolean seniorDiscount;
 
 	// *** constructor ***
-	public Client(String fName, String lName, String address, String city, String state, 
-      String zip, String phone, boolean seniorDiscount) {
-		
-      this.fName = fName;
+	public Client(String fName, String lName, String address, String city,
+			String state, String zip, String phone, boolean seniorDiscount) {
+
+		this.fName = fName;
 		this.lName = lName;
 		this.address = address;
-      this.city = city;
-      this.state = state;
-      this.zip = zip;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
 		this.phone = phone;
-      this.seniorDiscount = seniorDiscount;
+		this.seniorDiscount = seniorDiscount;
 	}
 
 	// *** methods ***
@@ -32,16 +32,16 @@ public class Client {
 	public String getAddress() {
 		return address;
 	}
-   
-   public String getCity() {
+
+	public String getCity() {
 		return city;
 	}
-   
-   public String getState() {
+
+	public String getState() {
 		return state;
 	}
-   
-   public String getZip() {
+
+	public String getZip() {
 		return zip;
 	}
 
@@ -56,24 +56,25 @@ public class Client {
 	public String getLName() {
 		return lName;
 	}
-   
-   public boolean getSeniorDiscount() {
-      return seniorDiscount;
-   }
-   
-   public ArrayList<Job> getJobList() {
-      return jobList;
-   }
+
+	public boolean getSeniorDiscount() {
+		return seniorDiscount;
+	}
+
+	public ArrayList<Job> getJobList() {
+		return jobList;
+	}
 
 	// setters
-   public void addJob(String date, String title, double price) {
-      jobList.add(new Job(date, title, price));
-   }
-   
-   public void addJob(String date, String title, double pricePerHour, double totalHours) {
-      jobList.add(new Job(date, title, pricePerHour, totalHours));
-   }
-   
+	public void addJob(String date, String title, double price) {
+		jobList.add(new Job(date, title, price));
+	}
+
+	public void addJob(String date, String title, double pricePerHour,
+			double totalHours) {
+		jobList.add(new Job(date, title, pricePerHour, totalHours));
+	}
+
 	public void setFName(String fName) {
 		this.fName = fName;
 	}
@@ -85,25 +86,25 @@ public class Client {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-   
-   public void setCity(String city) {
+
+	public void setCity(String city) {
 		this.city = city;
 	}
-   
-   public void setState(String state) {
+
+	public void setState(String state) {
 		this.state = state;
 	}
-   
-   public void setZip(String zip) {
+
+	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-   
-   public void setSeniorDiscount(boolean seniorDiscount) {
-      this.seniorDiscount = seniorDiscount;
-   }
+
+	public void setSeniorDiscount(boolean seniorDiscount) {
+		this.seniorDiscount = seniorDiscount;
+	}
 
 }
