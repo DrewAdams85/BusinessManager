@@ -273,15 +273,17 @@ public class JobMenu {
   public static void printClientJobInfo(int jobIndex, int clientIndex) {
 		System.out.printf("Title: %s%n", clientList.get(clientIndex).getJobList().get(jobIndex).getTitle()); 
 		System.out.printf("Date: %s%n", clientList.get(clientIndex).getJobList().get(jobIndex).getDate());
-		if (clientList.get(clientIndex).getJobList().get(clientIndex).getHours() > 0){
+		if (clientList.get(clientIndex).getJobList().get(jobIndex).getHours() > 0){
 			System.out.printf("Hours: %s%n", clientList.get(clientIndex).getJobList().get(jobIndex).getHours());
 			System.out.printf("Price Per Hour: $%.2f%n", clientList.get(clientIndex).getJobList().get(jobIndex).getPricePerHour());
 			// Total hours * price per hour
 			System.out.printf("Total: $%.2f", (double)(clientList.get(clientIndex).getJobList().get(jobIndex).getHours()*clientList
 					.get(clientIndex).getJobList().get(jobIndex).getPricePerHour()));
+			System.out.println();
 		}
 		else{
 			System.out.printf("Price: $%.2f%n", clientList.get(clientIndex).getJobList().get(jobIndex).getPrice());
+			System.out.println();
 		}
 		System.out.println();
 	} 
