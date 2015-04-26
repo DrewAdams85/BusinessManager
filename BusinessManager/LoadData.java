@@ -14,8 +14,8 @@ public class LoadData {
 		ArrayList<Client> clientList = new ArrayList<>();
 		
 		//comment out to switch back
-		// String fileName = "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/ClientDatabase.txt";
-		String fileName = "C:\\Users\\Drew\\Desktop\\Programming Projects\\BusinessManager\\BusinessManager\\ClientDatabase.txt";
+		String fileName = "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/ClientDatabase.txt";
+		//String fileName = "C:\\Users\\Drew\\Desktop\\Programming Projects\\BusinessManager\\BusinessManager\\ClientDatabase.txt";
 		String fName, lName, address, city, state, zip, phone, discount;
 		boolean seniorDiscount = false;
 
@@ -51,8 +51,8 @@ public class LoadData {
 		String title, date;
 		
 		//comment out to switch back
-		String fileName = "C:\\Users\\Drew\\Desktop\\Programming Projects\\BusinessManager\\BusinessManager\\JobDatabase.txt";
-		// String fileName = "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/JobDatabase.txt";
+		//String fileName = "C:\\Users\\Drew\\Desktop\\Programming Projects\\BusinessManager\\BusinessManager\\JobDatabase.txt";
+		String fileName = "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/JobDatabase.txt";
 
 		InputFile file = new InputFile(fileName);
 

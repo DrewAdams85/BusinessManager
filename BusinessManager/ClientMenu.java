@@ -14,11 +14,12 @@ public class ClientMenu {
 		String fName, lName, address, city, state, zip, phone, selection;
 		boolean seniorDiscount = false;
 		do {
-			System.out.println("Client Sub Menu: \n" 
+			System.out.println("Client Sub Menu: \n"
 					+ "1) Create Client \n"
 					+ "2) Edit Client Info \n" 
 					+ "3) View Client Info \n"
-					+ "4) Main Menu\n" 
+               + "4) Delete Client \n"
+					+ "5) Main Menu\n"
 					+ "0) Exit");
 			System.out.println();
 			System.out.printf("Sub Menu Option: ");
@@ -61,8 +62,11 @@ public class ClientMenu {
 				System.out.println();
 				break;
 			case 4:
-				Menu.mainMenu(input);
+				deleteClientMenu(input);
 				break;
+         case 5:
+            Menu.mainMenu(input);
+            break;
 			case 0:
 				System.out.println("Goodbye");
 				break;
@@ -201,4 +205,26 @@ public class ClientMenu {
 				+ "\n" + "Senior Discount: "
 				+ clientList.get(clientIndex).getSeniorDiscount() + "\n");
 	}
+   
+   public static void deleteClientMenu(Scanner input) {
+      int clientIndex;
+      System.out.println("Which Client Would You like To Delete?");
+		for (int i = 0; i < clientList.size(); i++) {
+			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i).getFName(), clientList.get(i).getLName());
+		}
+      System.out.println("0) Return To Client Menu");
+		System.out.print("Selection: ");
+		menu = input.nextInt();
+      clientIndex = menu - 1;
+		input.nextLine();
+      System.out.println();
+      
+      if (menu == 0)
+         clientMenu(input, clientList);
+      
+      System.out.printf("Deleted %s %s%n%n", 
+         clientList.get(clientIndex).getFName(), clientList.get(clientIndex).getLName());
+      clientList.remove(clientIndex);
+      
+   }
 }

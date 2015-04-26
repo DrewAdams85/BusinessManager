@@ -17,15 +17,22 @@ public class BusinessManagerApp {
 				+ "Log Jobs Done For Clients\n"
 				+ "Print Formatted Invoices\n"
 				+ "View And Edit Any Information\n\n");
+      
+      do {
+		   System.out.print("Please Enter 1 To Start Business Manager: ");
+         
+		   menu = input.nextInt();
+		   input.nextLine();
+		   System.out.println();
 
-		System.out.print("Please Enter 1 To Start Business Manager: ");
-
-		menu = input.nextInt();
-		input.nextLine();
-		System.out.println();
-
-		if (menu == 1)
-			Menu.mainMenu(input);
+		   switch (menu) {
+            case 1:
+			      Menu.mainMenu(input);
+               break;
+            default:
+               System.out.println("Invalid Selection");
+         }
+      } while (menu != 0);
 
 	}
 }
