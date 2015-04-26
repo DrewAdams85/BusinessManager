@@ -47,7 +47,7 @@ public class LoadData {
 
 	public static void loadJobData(ArrayList<Client> clientList) {
 		int clientIndex;
-		double price, hours;
+		double price, hours = 0;
 		String title, date;
 		
 		//comment out to switch back
@@ -61,7 +61,12 @@ public class LoadData {
 			title = file.readLine();
 			date = file.readWord();
 			price = file.readDouble();
-			hours = file.readDouble();
+         if (file.peek() == 0 ) {
+            hours = 0;
+         }
+         else {
+			   hours = file.readDouble();
+         }
 
 			if (hours > 0)
 				clientList.get(clientIndex).addJob(date, title, price, hours);

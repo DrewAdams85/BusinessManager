@@ -300,10 +300,10 @@ public class JobMenu {
 		System.out.printf("Date: %s%n", clientList.get(clientIndex).getJobList().get(jobIndex).getDate());
 		if (clientList.get(clientIndex).getJobList().get(jobIndex).getHours() > 0) {
 			System.out.printf("Hours: %s%n", clientList.get(clientIndex).getJobList().get(jobIndex).getHours());
-			System.out.printf("Price Per Hour: $%.2f%n", clientList.get(clientIndex).getJobList().get(jobIndex).getPricePerHour());
+			System.out.printf("Price Per Hour: $%.2f%n", clientList.get(clientIndex).getJobList().get(jobIndex).getPrice());
 			// Totals hours * price per hour and casts it to a double and displays with 2 decimals
 			System.out.printf("Total: $%.2f", (double) (clientList.get(clientIndex).getJobList()
-				.get(jobIndex).getHours() * clientList.get(clientIndex).getJobList().get(jobIndex).getPricePerHour()));
+				.get(jobIndex).getHours() * clientList.get(clientIndex).getJobList().get(jobIndex).getPrice()));
 			System.out.println();
 		} else {
 			System.out.printf("Price: $%.2f%n", clientList.get(clientIndex).getJobList().get(jobIndex).getPrice());
