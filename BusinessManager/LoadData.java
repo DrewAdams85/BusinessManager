@@ -10,17 +10,18 @@ import java.util.ArrayList;
 public class LoadData {
 	private static ArrayList<Client> clientList = new ArrayList<>();
 
+   // loads client data from a file
 	public static ArrayList<Client> loadClientData() {
 		ArrayList<Client> clientList = new ArrayList<>();
 		
-		//comment out to switch back
+		//change with file path to ClientDatabase for data to be read in
 		String fileName = "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/ClientDatabase.txt";
 		//String fileName = "C:\\Users\\Drew\\Desktop\\Programming Projects\\BusinessManager\\BusinessManager\\ClientDatabase.txt";
 		String fName, lName, address, city, state, zip, phone, discount;
 		boolean seniorDiscount = false;
 
 		InputFile file = new InputFile(fileName);
-
+      
 		while (!file.eof()) {
 			fName = file.readWord();
 			lName = file.readWord();
@@ -45,12 +46,13 @@ public class LoadData {
 		return clientList;
 	}
 
+   // Loads job data from a file
 	public static void loadJobData(ArrayList<Client> clientList) {
 		int clientIndex;
 		double price, hours = 0;
 		String title, date;
 		
-		//comment out to switch back
+		//change with file path to JobDatabase for data to be read in
 		//String fileName = "C:\\Users\\Drew\\Desktop\\Programming Projects\\BusinessManager\\BusinessManager\\JobDatabase.txt";
 		String fileName = "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/JobDatabase.txt";
 

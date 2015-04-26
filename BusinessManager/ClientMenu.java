@@ -8,7 +8,8 @@ import java.util.ArrayList;
 public class ClientMenu {
 	private static int menu = 0;
 	private static ArrayList<Client> clientList;
-
+   
+   // main client menu
 	public static void clientMenu(Scanner input, ArrayList<Client> list) {
 		clientList = list;
 		String fName, lName, address, city, state, zip, phone, selection;
@@ -29,6 +30,7 @@ public class ClientMenu {
 			System.out.println();
 			switch (menu) {
 			case 1:
+            // gets new client info and stores it to pass to constructor
 				System.out.print("Clients First Name: ");
 				fName = input.nextLine();
 				System.out.print("Clients Last Name: ");
@@ -80,6 +82,7 @@ public class ClientMenu {
 	public static void editClientMenu(Scanner input) {
 		int clientIndex;
 		do {
+         // lists all current clients
 			System.out.println("What client would you like to edit?");
 			for (int i = 0; i < clientList.size(); i++) {
 				System.out.printf("%d %s %s%n", i + 1, clientList.get(i).getFName(), clientList.get(i).getLName());
@@ -98,6 +101,7 @@ public class ClientMenu {
 		} while (menu != 0);
 	}
 
+   // Edit client menu
 	public static void editClientSubMenu(Scanner input, int clientIndex) {
 		String selection;
 		do {
@@ -164,9 +168,11 @@ public class ClientMenu {
 		System.exit(0);
 	}
 
+   // Menu to view client info
 	public static void viewClientMenu(Scanner input) {
 		int clientIndex;
 		String selection;
+      
 		System.out.println("What client would you like to view?");
 		for (int i = 0; i < clientList.size(); i++) {
 			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i).getFName(), clientList.get(i).getLName());
@@ -194,6 +200,7 @@ public class ClientMenu {
 		}
 	}
 
+   // Method to print info for a specific client
 	public static void printClientInfo(int clientIndex) {
 		System.out.println("Info for: " + clientList.get(clientIndex).getFName() + " "
 				+ clientList.get(clientIndex).getLName() + "\n" + "Address: "
@@ -206,6 +213,7 @@ public class ClientMenu {
 				+ clientList.get(clientIndex).getSeniorDiscount() + "\n");
 	}
    
+   // Menu to select a client to delete
    public static void deleteClientMenu(Scanner input) {
       int clientIndex;
       System.out.println("Which Client Would You like To Delete?");

@@ -140,6 +140,7 @@ public class JobMenu {
 	//Submenu for edit job
 	public static void editJobSubMenu(Scanner input, int clientIndex) {
 		String selection;
+      int jobIndex;
 		System.out.println("Select the Job to edit");
 		//displays the clients existing jobs
 		for (int j = 0; j < clientList.get(clientIndex).getJobList().size(); j++) {
@@ -151,8 +152,12 @@ public class JobMenu {
 		System.out.print("Menu Option: ");
 		menu = input.nextInt();
 		input.nextLine();
-		clientIndex = menu - 1;
+		jobIndex = menu - 1;
 		System.out.println();
+      
+      //displays current job info
+      printClientJobInfo(jobIndex, clientIndex);
+      
 		//options to edit
 		do {
 			System.out.println("What would you like to edit?");
@@ -296,17 +301,21 @@ public class JobMenu {
 
 	//gives a clean print out of the selected Job
 	public static void printClientJobInfo(int jobIndex, int clientIndex) {
-		System.out.printf("Title: %s%n", clientList.get(clientIndex).getJobList().get(jobIndex).getTitle());
-		System.out.printf("Date: %s%n", clientList.get(clientIndex).getJobList().get(jobIndex).getDate());
+		System.out.printf("Title: %s%n", 
+         clientList.get(clientIndex).getJobList().get(jobIndex).getTitle());
+		System.out.printf("Date: %s%n", 
+         clientList.get(clientIndex).getJobList().get(jobIndex).getDate());
 		if (clientList.get(clientIndex).getJobList().get(jobIndex).getHours() > 0) {
 			System.out.printf("Hours: %s%n", clientList.get(clientIndex).getJobList().get(jobIndex).getHours());
-			System.out.printf("Price Per Hour: $%.2f%n", clientList.get(clientIndex).getJobList().get(jobIndex).getPrice());
+			System.out.printf("Price Per Hour: $%.2f%n", 
+            clientList.get(clientIndex).getJobList().get(jobIndex).getPrice());
 			// Totals hours * price per hour and casts it to a double and displays with 2 decimals
-			System.out.printf("Total: $%.2f", (double) (clientList.get(clientIndex).getJobList()
-				.get(jobIndex).getHours() * clientList.get(clientIndex).getJobList().get(jobIndex).getPrice()));
+			System.out.printf("Total: $%.2f", (double) (
+            clientList.get(clientIndex).getJobList().get(jobIndex).getHours() * clientList.get(clientIndex).getJobList().get(jobIndex).getPrice()));
 			System.out.println();
 		} else {
-			System.out.printf("Price: $%.2f%n", clientList.get(clientIndex).getJobList().get(jobIndex).getPrice());
+			System.out.printf("Price: $%.2f%n", 
+            clientList.get(clientIndex).getJobList().get(jobIndex).getPrice());
 			System.out.println();
 		}
 		System.out.println();

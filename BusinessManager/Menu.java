@@ -14,7 +14,8 @@ public class Menu {
 	Date dateobj = new Date();
 	private static int menu = 0;
 	private static ArrayList<Client> clientList = LoadData.loadClientData();
-
+   
+   // Main menu
 	public static void mainMenu(Scanner input) {
 		do {
 			System.out.println("Main Menu: \n" 
@@ -54,6 +55,7 @@ public class Menu {
 		System.exit(0);
 	}
 
+   // print invoice menu
 	public static void printInvoice(Scanner input) {
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 		Date dateobj = new Date();

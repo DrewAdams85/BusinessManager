@@ -11,6 +11,8 @@ public class BusinessManagerApp {
 	public static void main(String[] args) throws IOException {
 		int menu;
 		Scanner input = new Scanner(System.in);
+      
+      // Initial welcome display
 		System.out.println("Welcome To Business Manager!\n\n"
 				+ "This Program Allows You To:\n\n"
 				+ "Create And Manage Clients\n" 
