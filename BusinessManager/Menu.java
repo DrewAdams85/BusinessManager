@@ -17,10 +17,11 @@ public class Menu {
 
 	public static void mainMenu(Scanner input) {
 		do {
-			System.out
-					.println("Main Menu: \n" + " 1) Client Menu \n"
-							+ " 2) Job Menu \n" + " 3) Print Invoice \n"
-							+ " 0) Exit\n");
+			System.out.println("Main Menu: \n" 
+				+ " 1) Client Menu \n"
+				+ " 2) Job Menu \n" 
+				+ " 3) Print Invoice \n"
+				+ " 0) Exit\n");
 			System.out.print("Menu Option: ");
 			menu = input.nextInt();
 			input.nextLine();
@@ -60,8 +61,7 @@ public class Menu {
 
 		System.out.println("Print Invoice For Client: ");
 		for (int i = 0; i < clientList.size(); i++) {
-			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i)
-					.getFName(), clientList.get(i).getLName());
+			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i).getFName(), clientList.get(i).getLName());
 		}
 		System.out.println("0) Main Menu\n");
 		System.out.print("Menu Option: ");
@@ -75,6 +75,6 @@ public class Menu {
 		}
 
 		Invoice.printInvoice(clientList.get(clientIndex),
-				df.format(dateobj.getTime()));
+			df.format(dateobj.getTime()));
 	}
 }

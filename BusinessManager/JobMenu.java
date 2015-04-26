@@ -59,8 +59,7 @@ public class JobMenu {
 
 		System.out.println("Add Job For Client: ");
 		for (int i = 0; i < clientList.size(); i++) {
-			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i)
-					.getFName(), clientList.get(i).getLName());
+			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i).getFName(), clientList.get(i).getLName());
 		}
 		System.out.println("0) Return To Job Menu");
 		System.out.println();
@@ -85,8 +84,7 @@ public class JobMenu {
 					pricePerHour = input.nextDouble();
 					System.out.print("Enter Total Hours: ");
 					totalHours = input.nextDouble();
-					clientList.get(clientIndex).addJob(date, title,
-							pricePerHour, totalHours);
+					clientList.get(clientIndex).addJob(date, title, pricePerHour, totalHours);
 				} else {
 					System.out.print("Enter Price: ");
 					price = input.nextDouble();
@@ -95,10 +93,9 @@ public class JobMenu {
 				System.out.println();
 			}
 
-			System.out.printf(
-					"Would You Like To Add Another Job For %s %s(y/n): ",
-					clientList.get(clientIndex).getFName(),
-					clientList.get(clientIndex).getLName());
+			System.out.printf("Would You Like To Add Another Job For %s %s(y/n): ",
+				clientList.get(clientIndex).getFName(),
+				clientList.get(clientIndex).getLName());
 			selection = input.next();
 			input.nextLine();
 			System.out.println();
@@ -115,8 +112,7 @@ public class JobMenu {
 		do{
 			System.out.println("Select Client's Job to edit");
 			for (int c = 0; c < clientList.size(); c++) {
-				System.out.printf("%d) %s %s%n", c + 1, clientList.get(c)
-						.getFName(), clientList.get(c).getLName());
+				System.out.printf("%d) %s %s%n", c + 1, clientList.get(c).getFName(), clientList.get(c).getLName());
 			}
 			
 			System.out.println("0) Return To Job Menu");
@@ -230,10 +226,8 @@ public class JobMenu {
 		do {
 			System.out.println("Select Client to view Job");
 			for (int c = 0; c < clientList.size(); c++) {
-				System.out.printf("%d) %s %s%n", c + 1, clientList.get(c)
-						.getFName(), clientList.get(c).getLName());
+				System.out.printf("%d) %s %s%n", c + 1, clientList.get(c).getFName(), clientList.get(c).getLName());
 			}
-
 			System.out.println("0) Return To Job Menu");
 			System.out.println();
 			System.out.print("Menu Option: ");
@@ -255,7 +249,7 @@ public class JobMenu {
 		do {
 			System.out.println("Select the Job to view");
 			for (int j = 0; j < clientList.get(jobIndex).getJobList().size(); j++) {
-				System.out.printf("%d %s %n", j + 1, clientList.get(jobIndex).getJobList().get(j).getTitle());
+				System.out.printf("%d) %s %n", j + 1, clientList.get(jobIndex).getJobList().get(j).getTitle());
 			}
 			System.out.println("0) Return To Job Menu");
 			System.out.println();

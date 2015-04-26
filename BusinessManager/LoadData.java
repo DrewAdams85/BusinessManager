@@ -12,8 +12,9 @@ public class LoadData {
 
 	public static ArrayList<Client> loadClientData() {
 		ArrayList<Client> clientList = new ArrayList<>();
-		// String fileName =
-		// "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/ClientDatabase.txt";
+		
+		//comment out to switch back
+		// String fileName = "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/ClientDatabase.txt";
 		String fileName = "C:\\Users\\Drew\\Desktop\\Programming Projects\\BusinessManager\\BusinessManager\\ClientDatabase.txt";
 		String fName, lName, address, city, state, zip, phone, discount;
 		boolean seniorDiscount = false;
@@ -48,10 +49,10 @@ public class LoadData {
 		int clientIndex;
 		double price, hours;
 		String title, date;
-
+		
+		//comment out to switch back
 		String fileName = "C:\\Users\\Drew\\Desktop\\Programming Projects\\BusinessManager\\BusinessManager\\JobDatabase.txt";
-		// String fileName =
-		// "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/JobDatabase.txt";
+		// String fileName = "/Users/Kent/Documents/GIT/BusinessManager/BusinessManager/JobDatabase.txt";
 
 		InputFile file = new InputFile(fileName);
 

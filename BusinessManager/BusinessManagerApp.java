@@ -13,7 +13,8 @@ public class BusinessManagerApp {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Welcome To Business Manager!\n\n"
 				+ "This Program Allows You To:\n\n"
-				+ "Create And Manage Clients\n" + "Log Jobs Done For Clients\n"
+				+ "Create And Manage Clients\n" 
+				+ "Log Jobs Done For Clients\n"
 				+ "Print Formatted Invoices\n"
 				+ "View And Edit Any Information\n\n");
 

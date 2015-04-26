@@ -14,9 +14,12 @@ public class ClientMenu {
 		String fName, lName, address, city, state, zip, phone, selection;
 		boolean seniorDiscount = false;
 		do {
-			System.out.println("Client Sub Menu: \n" + "1) Create Client \n"
-					+ "2) Edit Client Info \n" + "3) View Client Info \n"
-					+ "4) Main Menu\n" + "0) Exit");
+			System.out.println("Client Sub Menu: \n" 
+					+ "1) Create Client \n"
+					+ "2) Edit Client Info \n" 
+					+ "3) View Client Info \n"
+					+ "4) Main Menu\n" 
+					+ "0) Exit");
 			System.out.println();
 			System.out.printf("Sub Menu Option: ");
 			menu = input.nextInt();
@@ -39,8 +42,7 @@ public class ClientMenu {
 				zip = input.nextLine();
 				System.out.print("Clients Phone Number: ");
 				phone = input.nextLine();
-				System.out
-						.print("Does This Client Get A Senior Discoiunt?(y/n): ");
+				System.out.print("Does This Client Get A Senior Discoiunt?(y/n): ");
 				selection = input.next();
 				if (selection.equals("y"))
 					seniorDiscount = true;
@@ -76,8 +78,7 @@ public class ClientMenu {
 		do {
 			System.out.println("What client would you like to edit?");
 			for (int i = 0; i < clientList.size(); i++) {
-				System.out.printf("%d %s %s%n", i + 1, clientList.get(i)
-						.getFName(), clientList.get(i).getLName());
+				System.out.printf("%d %s %s%n", i + 1, clientList.get(i).getFName(), clientList.get(i).getLName());
 			}
 			System.out.println("0) Client Menu\n");
 			System.out.print("Selection: ");
@@ -137,8 +138,7 @@ public class ClientMenu {
 				clientList.get(clientIndex).setPhone(input.next());
 				break;
 			case 5:
-				System.out
-						.print("Does This Client Recieve A Senior Discount?(y/n): ");
+				System.out.print("Does This Client Recieve A Senior Discount?(y/n): ");
 				selection = input.next();
 
 				if (selection.equals("y"))
@@ -165,8 +165,7 @@ public class ClientMenu {
 		String selection;
 		System.out.println("What client would you like to view?");
 		for (int i = 0; i < clientList.size(); i++) {
-			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i)
-					.getFName(), clientList.get(i).getLName());
+			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i).getFName(), clientList.get(i).getLName());
 		}
 		System.out.println("0) Return To Client Menu");
 		System.out.print("Selection: ");
@@ -192,8 +191,7 @@ public class ClientMenu {
 	}
 
 	public static void printClientInfo(int clientIndex) {
-		System.out.println("Info for: "
-				+ clientList.get(clientIndex).getFName() + " "
+		System.out.println("Info for: " + clientList.get(clientIndex).getFName() + " "
 				+ clientList.get(clientIndex).getLName() + "\n" + "Address: "
 				+ clientList.get(clientIndex).getAddress() + "\n" + "City: "
 				+ clientList.get(clientIndex).getCity() + "\n" + "State: "
