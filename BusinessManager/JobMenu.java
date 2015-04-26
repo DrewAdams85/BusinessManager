@@ -57,14 +57,14 @@ public class JobMenu {
 	}
 
 	public static void createJobMenu(Scanner input, int clientIndex) {
-		String title, date, hours, selection;
-		double price = 0, pricePerHour = 0, totalHours = 0;
+		String title, date, selection;
+		double hours = 0;
+		double price = 0, hourlyCharge = 0;
 		boolean hourlyJob = false;
 
 		System.out.println("Add Job For Client: ");
 		for (int i = 0; i < clientList.size(); i++) {
-			System.out.printf("%d) %s %s%n", i + 1, 
-            clientList.get(i).getFName(), clientList.get(i).getLName());
+			System.out.printf("%d) %s %s%n", i + 1, clientList.get(i).getFName(), clientList.get(i).getLName());
 		}
 		System.out.println("0) Return To Job Menu");
 		System.out.println();
@@ -75,28 +75,27 @@ public class JobMenu {
 		clientIndex = menu - 1;
 
 		do {
-			if (menu != 0) {
-				System.out.println();
-				System.out.print("Enter A Title For The Job: ");
-				title = input.nextLine();
-				System.out.print("Enter Job Date: ");
-				date = input.nextLine();
-				System.out.print("Is It An Hourly Job(y/n): ");
-				selection = input.next();
-				if (selection.equals("y")) {
-					hourlyJob = true;
-					System.out.print("Enter Price Per Hour: ");
-					pricePerHour = input.nextDouble();
-					System.out.print("Enter Total Hours: ");
-					totalHours = input.nextDouble();
-					clientList.get(clientIndex).addJob(date, title, pricePerHour, totalHours);
-				} else {
-					System.out.print("Enter Price: ");
-					price = input.nextDouble();
-					clientList.get(clientIndex).addJob(date, title, price);
-				}
-				System.out.println();
+			System.out.println();
+			System.out.print("Enter A Title For The Job: ");
+			title = input.nextLine();
+			System.out.print("Enter Job Date: ");
+			date = input.nextLine();
+			System.out.print("Is It An Hourly Job(y/n): ");
+			selection = input.next();
+			if (selection.equals("y")) {
+				hourlyJob = true;
+				System.out.print("Enter Price Per Hour: ");
+				hourlyCharge = input.nextDouble();
+				System.out.print("Enter Total Hours: ");
+				hours = input.nextDouble();
+				clientList.get(clientIndex).addJob(date, title, hourlyCharge, hours);
+			} else {
+				System.out.print("Enter Price: ");
+				price = input.nextDouble();
+				clientList.get(clientIndex).addJob(date, title, price);
 			}
+			System.out.println();
+			
 
 			System.out.printf("Would You Like To Add Another Job For %s %s(y/n): ",
 				clientList.get(clientIndex).getFName(),
